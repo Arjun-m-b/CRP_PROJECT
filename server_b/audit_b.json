@@ -1,0 +1,26 @@
+[
+  {
+    "seq": 1,
+    "event": "SERVER_STARTED",
+    "timestamp": 1780320081.6996698,
+    "data": {
+      "server": "server_b",
+      "port": 5002,
+      "role": "standby"
+    },
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "this_hash": "793f8913564cd42968a60599b23302cbc860235dfad7c5df0c473b5766d818e7"
+  },
+  {
+    "seq": 2,
+    "event": "SERVER_STARTED",
+    "timestamp": 1780320105.2730083,
+    "data": {
+      "server": "server_b",
+      "port": 5002,
+      "role": "standby"
+    },
+    "prev_hash": "793f8913564cd42968a60599b23302cbc860235dfad7c5df0c473b5766d818e7",
+    "this_hash": "2ccd36fc9dd66f2eb8e413d6803d5cdc6c37a0bbcfcaf83572add3e9542fc188"
+  }
+]

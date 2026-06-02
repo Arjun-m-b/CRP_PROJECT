@@ -1,0 +1,14 @@
+[
+  {
+    "seq": 1,
+    "event": "SERVER_STARTED",
+    "timestamp": 1780320125.5490077,
+    "data": {
+      "server": "server_a",
+      "port": 5001,
+      "role": "primary"
+    },
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "this_hash": "3f29c47375ff429f29810d36d30f00c081fc2b091b3d0378804eb8a9ea0e223c"
+  }
+]
