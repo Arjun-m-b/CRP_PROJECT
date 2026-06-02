@@ -126,11 +126,8 @@ def start_server(script_path: str, label: str) -> subprocess.Popen:
 
     proc = subprocess.Popen(
         [sys.executable, script_path],
-        stdout = subprocess.PIPE,
-        stderr = subprocess.STDOUT,
-        text   = True,
-        encoding = "utf-8",
-        errors   = "replace",
+        stdout = sys.stdout,
+        stderr = sys.stdout,
         cwd    = ROOT,
     )
 

@@ -1,0 +1,2910 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "meta": {
+    "source": "Synthea Patient Generator v3.3.0 (synthetic demo data)",
+    "generated_at": "2025-01-15T00:00:00Z",
+    "note": "All data is entirely synthetic and fictional. No real patient data."
+  },
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0001-4e5f-8a9b-c0d1e2f30001",
+        "name": [
+          {
+            "family": "Thompson",
+            "given": [
+              "Eleanor",
+              "Rose"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1979-03-14",
+        "address": [
+          {
+            "city": "Boston",
+            "state": "Massachusetts",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "617-555-0101"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "44054006",
+            "display": "Diabetes mellitus type 2",
+            "onset": "2015-06-10"
+          },
+          {
+            "code": "38341003",
+            "display": "Hypertension",
+            "onset": "2012-03-22"
+          },
+          {
+            "code": "73211009",
+            "display": "Hyperlipidemia",
+            "onset": "2016-09-05"
+          }
+        ],
+        "medications": [
+          {
+            "code": "860975",
+            "display": "Metformin 500mg",
+            "start": "2015-06-15"
+          },
+          {
+            "code": "314076",
+            "display": "Lisinopril 10mg",
+            "start": "2012-04-01"
+          },
+          {
+            "code": "617314",
+            "display": "Atorvastatin 20mg",
+            "start": "2016-09-20"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 128,
+            "unit": "mmHg",
+            "date": "2024-11-15"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 82,
+            "unit": "mmHg",
+            "date": "2024-11-15"
+          },
+          {
+            "code": "2339-0",
+            "display": "Blood Glucose",
+            "value": 142,
+            "unit": "mg/dL",
+            "date": "2024-11-15"
+          },
+          {
+            "code": "4548-4",
+            "display": "HbA1c",
+            "value": 7.2,
+            "unit": "%",
+            "date": "2024-11-15"
+          },
+          {
+            "code": "2085-9",
+            "display": "HDL Cholesterol",
+            "value": 52,
+            "unit": "mg/dL",
+            "date": "2024-10-02"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 27.4,
+            "unit": "kg/m2",
+            "date": "2024-11-15"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "General examination",
+            "date": "2024-11-15",
+            "provider": "Dr. Sandra Kim"
+          },
+          {
+            "class": "outpatient",
+            "type": "Diabetes follow-up",
+            "date": "2024-06-03",
+            "provider": "Dr. Sandra Kim"
+          },
+          {
+            "class": "emergency",
+            "type": "Chest pain evaluation",
+            "date": "2023-08-17",
+            "provider": "Emergency Dept"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Penicillin",
+            "reaction": "Rash",
+            "severity": "moderate"
+          }
+        ],
+        "notes": "Patient is well-controlled on current regimen. Encourage continued dietary compliance. Next HbA1c in 3 months."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0002-4e5f-8a9b-c0d1e2f30002",
+        "name": [
+          {
+            "family": "Martinez",
+            "given": [
+              "Carlos",
+              "Eduardo"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1965-07-28",
+        "address": [
+          {
+            "city": "Houston",
+            "state": "Texas",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "713-555-0202"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Spanish"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "53741008",
+            "display": "Coronary artery disease",
+            "onset": "2018-02-14"
+          },
+          {
+            "code": "38341003",
+            "display": "Hypertension",
+            "onset": "2010-05-03"
+          },
+          {
+            "code": "44054006",
+            "display": "Diabetes mellitus type 2",
+            "onset": "2019-11-20"
+          },
+          {
+            "code": "40055000",
+            "display": "Chronic kidney disease stage 2",
+            "onset": "2021-07-08"
+          }
+        ],
+        "medications": [
+          {
+            "code": "308460",
+            "display": "Aspirin 81mg",
+            "start": "2018-02-20"
+          },
+          {
+            "code": "197361",
+            "display": "Metoprolol succinate 50mg",
+            "start": "2018-03-01"
+          },
+          {
+            "code": "617314",
+            "display": "Atorvastatin 40mg",
+            "start": "2018-02-20"
+          },
+          {
+            "code": "860975",
+            "display": "Metformin 1000mg",
+            "start": "2019-11-25"
+          },
+          {
+            "code": "314076",
+            "display": "Lisinopril 20mg",
+            "start": "2010-05-15"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 138,
+            "unit": "mmHg",
+            "date": "2024-12-01"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 88,
+            "unit": "mmHg",
+            "date": "2024-12-01"
+          },
+          {
+            "code": "2339-0",
+            "display": "Blood Glucose",
+            "value": 165,
+            "unit": "mg/dL",
+            "date": "2024-12-01"
+          },
+          {
+            "code": "4548-4",
+            "display": "HbA1c",
+            "value": 7.8,
+            "unit": "%",
+            "date": "2024-12-01"
+          },
+          {
+            "code": "33914-3",
+            "display": "eGFR",
+            "value": 68,
+            "unit": "mL/min/1.73m2",
+            "date": "2024-12-01"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 31.2,
+            "unit": "kg/m2",
+            "date": "2024-12-01"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Cardiology follow-up",
+            "date": "2024-12-01",
+            "provider": "Dr. James Okafor"
+          },
+          {
+            "class": "inpatient",
+            "type": "Cardiac catheterization",
+            "date": "2023-03-10",
+            "provider": "Dr. James Okafor"
+          },
+          {
+            "class": "outpatient",
+            "type": "Nephrology consult",
+            "date": "2024-07-22",
+            "provider": "Dr. Rachel Patel"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Sulfa drugs",
+            "reaction": "Anaphylaxis",
+            "severity": "severe"
+          },
+          {
+            "substance": "Ibuprofen",
+            "reaction": "GI bleed",
+            "severity": "moderate"
+          }
+        ],
+        "notes": "Complex patient with CAD, HTN, T2DM, and CKD2. Avoid NSAIDs. Renal function stable. Cardiology managing stent follow-up."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0003-4e5f-8a9b-c0d1e2f30003",
+        "name": [
+          {
+            "family": "Nguyen",
+            "given": [
+              "Lily",
+              "Thanh"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1992-11-05",
+        "address": [
+          {
+            "city": "San Jose",
+            "state": "California",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "408-555-0303"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Single"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Vietnamese"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "195967001",
+            "display": "Asthma",
+            "onset": "2005-09-12"
+          },
+          {
+            "code": "366979004",
+            "display": "Vitamin D deficiency",
+            "onset": "2020-03-14"
+          },
+          {
+            "code": "57676002",
+            "display": "Joint pain",
+            "onset": "2022-06-30"
+          }
+        ],
+        "medications": [
+          {
+            "code": "745679",
+            "display": "Albuterol inhaler 90mcg",
+            "start": "2005-09-15"
+          },
+          {
+            "code": "896188",
+            "display": "Fluticasone propionate 110mcg inhaler",
+            "start": "2010-01-20"
+          },
+          {
+            "code": "318340",
+            "display": "Vitamin D3 2000IU",
+            "start": "2020-03-20"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 112,
+            "unit": "mmHg",
+            "date": "2024-09-18"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 72,
+            "unit": "mmHg",
+            "date": "2024-09-18"
+          },
+          {
+            "code": "59408-5",
+            "display": "SpO2",
+            "value": 97,
+            "unit": "%",
+            "date": "2024-09-18"
+          },
+          {
+            "code": "19926-5",
+            "display": "FEV1/FVC ratio",
+            "value": 0.74,
+            "unit": "ratio",
+            "date": "2024-09-18"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 22.1,
+            "unit": "kg/m2",
+            "date": "2024-09-18"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Pulmonology follow-up",
+            "date": "2024-09-18",
+            "provider": "Dr. William Chen"
+          },
+          {
+            "class": "urgent_care",
+            "type": "Asthma exacerbation",
+            "date": "2024-01-07",
+            "provider": "Urgent Care Clinic"
+          },
+          {
+            "class": "outpatient",
+            "type": "Annual wellness visit",
+            "date": "2024-04-22",
+            "provider": "Dr. Maria Lopez"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Aspirin",
+            "reaction": "Bronchospasm",
+            "severity": "severe"
+          },
+          {
+            "substance": "Latex",
+            "reaction": "Contact dermatitis",
+            "severity": "mild"
+          }
+        ],
+        "notes": "Asthma well-controlled on current ICS/SABA regimen. Remind patient to carry rescue inhaler. Spirometry stable."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0004-4e5f-8a9b-c0d1e2f30004",
+        "name": [
+          {
+            "family": "Johnson",
+            "given": [
+              "Marcus",
+              "DeShawn"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1958-04-19",
+        "address": [
+          {
+            "city": "Chicago",
+            "state": "Illinois",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "312-555-0404"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Divorced"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "195967001",
+            "display": "Chronic obstructive pulmonary disease",
+            "onset": "2013-08-25"
+          },
+          {
+            "code": "38341003",
+            "display": "Hypertension",
+            "onset": "2008-01-15"
+          },
+          {
+            "code": "73211009",
+            "display": "Hyperlipidemia",
+            "onset": "2009-04-10"
+          },
+          {
+            "code": "77386006",
+            "display": "Osteoarthritis of knee",
+            "onset": "2019-10-03"
+          }
+        ],
+        "medications": [
+          {
+            "code": "896188",
+            "display": "Tiotropium bromide 18mcg inhaler",
+            "start": "2013-09-01"
+          },
+          {
+            "code": "745679",
+            "display": "Salmeterol-fluticasone 50/500mcg",
+            "start": "2014-02-15"
+          },
+          {
+            "code": "617314",
+            "display": "Amlodipine 10mg",
+            "start": "2008-02-01"
+          },
+          {
+            "code": "617314",
+            "display": "Rosuvastatin 20mg",
+            "start": "2009-04-20"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 145,
+            "unit": "mmHg",
+            "date": "2024-10-30"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 92,
+            "unit": "mmHg",
+            "date": "2024-10-30"
+          },
+          {
+            "code": "19926-5",
+            "display": "FEV1/FVC ratio",
+            "value": 0.61,
+            "unit": "ratio",
+            "date": "2024-10-30"
+          },
+          {
+            "code": "59408-5",
+            "display": "SpO2",
+            "value": 93,
+            "unit": "%",
+            "date": "2024-10-30"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 29.8,
+            "unit": "kg/m2",
+            "date": "2024-10-30"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "COPD management",
+            "date": "2024-10-30",
+            "provider": "Dr. Patricia Walsh"
+          },
+          {
+            "class": "inpatient",
+            "type": "COPD exacerbation",
+            "date": "2024-02-14",
+            "provider": "General Hospital"
+          },
+          {
+            "class": "outpatient",
+            "type": "Orthopedics consult",
+            "date": "2024-08-05",
+            "provider": "Dr. Robert Zhang"
+          }
+        ],
+        "allergies": [],
+        "notes": "Ex-smoker (quit 2013). COPD GOLD stage 2. BP slightly elevated - consider medication adjustment. Knee arthroscopy deferred."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0005-4e5f-8a9b-c0d1e2f30005",
+        "name": [
+          {
+            "family": "Patel",
+            "given": [
+              "Priya",
+              "Sunita"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1988-09-23",
+        "address": [
+          {
+            "city": "Atlanta",
+            "state": "Georgia",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "404-555-0505"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Gujarati"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "79619009",
+            "display": "Migraine without aura",
+            "onset": "2010-06-15"
+          },
+          {
+            "code": "370992007",
+            "display": "Hypothyroidism",
+            "onset": "2018-04-30"
+          },
+          {
+            "code": "36923009",
+            "display": "Major depressive disorder",
+            "onset": "2021-11-10"
+          }
+        ],
+        "medications": [
+          {
+            "code": "1551107",
+            "display": "Sumatriptan 100mg",
+            "start": "2010-07-01"
+          },
+          {
+            "code": "892244",
+            "display": "Levothyroxine 75mcg",
+            "start": "2018-05-05"
+          },
+          {
+            "code": "596926",
+            "display": "Sertraline 100mg",
+            "start": "2021-11-20"
+          },
+          {
+            "code": "748798",
+            "display": "Topiramate 50mg (migraine prophylaxis)",
+            "start": "2022-01-15"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 118,
+            "unit": "mmHg",
+            "date": "2024-11-08"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 76,
+            "unit": "mmHg",
+            "date": "2024-11-08"
+          },
+          {
+            "code": "3016-3",
+            "display": "TSH",
+            "value": 1.8,
+            "unit": "mIU/L",
+            "date": "2024-11-08"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 23.6,
+            "unit": "kg/m2",
+            "date": "2024-11-08"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Neurology follow-up",
+            "date": "2024-11-08",
+            "provider": "Dr. Aisha Ibrahim"
+          },
+          {
+            "class": "outpatient",
+            "type": "Psychiatry follow-up",
+            "date": "2024-08-19",
+            "provider": "Dr. Thomas Keller"
+          },
+          {
+            "class": "outpatient",
+            "type": "Endocrinology check",
+            "date": "2024-11-08",
+            "provider": "Dr. Susan Park"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Codeine",
+            "reaction": "Nausea and vomiting",
+            "severity": "mild"
+          },
+          {
+            "substance": "Amoxicillin",
+            "reaction": "Rash",
+            "severity": "mild"
+          }
+        ],
+        "notes": "Migraine frequency reduced with topiramate. TSH therapeutic. Depression improving on sertraline - consider dose review in 3 months."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0006-4e5f-8a9b-c0d1e2f30006",
+        "name": [
+          {
+            "family": "Williams",
+            "given": [
+              "Robert",
+              "James"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1944-12-08",
+        "address": [
+          {
+            "city": "Phoenix",
+            "state": "Arizona",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "602-555-0606"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Widowed"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "56265001",
+            "display": "Heart failure with reduced ejection fraction",
+            "onset": "2016-05-20"
+          },
+          {
+            "code": "44054006",
+            "display": "Diabetes mellitus type 2",
+            "onset": "2005-09-14"
+          },
+          {
+            "code": "38341003",
+            "display": "Hypertension",
+            "onset": "2000-03-10"
+          },
+          {
+            "code": "73211009",
+            "display": "Hyperlipidemia",
+            "onset": "2002-07-25"
+          },
+          {
+            "code": "40055000",
+            "display": "Chronic kidney disease stage 3",
+            "onset": "2020-02-18"
+          }
+        ],
+        "medications": [
+          {
+            "code": "308460",
+            "display": "Carvedilol 25mg",
+            "start": "2016-06-01"
+          },
+          {
+            "code": "314076",
+            "display": "Enalapril 10mg",
+            "start": "2016-06-01"
+          },
+          {
+            "code": "748798",
+            "display": "Spironolactone 25mg",
+            "start": "2017-01-10"
+          },
+          {
+            "code": "308460",
+            "display": "Furosemide 40mg",
+            "start": "2016-05-25"
+          },
+          {
+            "code": "860975",
+            "display": "Empagliflozin 10mg",
+            "start": "2022-04-01"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 122,
+            "unit": "mmHg",
+            "date": "2024-11-22"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 74,
+            "unit": "mmHg",
+            "date": "2024-11-22"
+          },
+          {
+            "code": "33914-3",
+            "display": "eGFR",
+            "value": 42,
+            "unit": "mL/min/1.73m2",
+            "date": "2024-11-22"
+          },
+          {
+            "code": "2951-2",
+            "display": "Sodium",
+            "value": 138,
+            "unit": "mmol/L",
+            "date": "2024-11-22"
+          },
+          {
+            "code": "6298-4",
+            "display": "Potassium",
+            "value": 4.2,
+            "unit": "mmol/L",
+            "date": "2024-11-22"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 26.9,
+            "unit": "kg/m2",
+            "date": "2024-11-22"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Heart failure clinic",
+            "date": "2024-11-22",
+            "provider": "Dr. Angela Russo"
+          },
+          {
+            "class": "inpatient",
+            "type": "HF decompensation",
+            "date": "2024-05-03",
+            "provider": "General Hospital"
+          },
+          {
+            "class": "outpatient",
+            "type": "Nephrology",
+            "date": "2024-09-14",
+            "provider": "Dr. Harold Foster"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "ACE inhibitors (cough)",
+            "reaction": "Chronic dry cough",
+            "severity": "moderate"
+          }
+        ],
+        "notes": "EF 35%, compensated on current regimen. CKD3 stable. SGLT2i added for cardioprotection. Daily weight monitoring advised. Low-sodium diet counseling completed."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0007-4e5f-8a9b-c0d1e2f30007",
+        "name": [
+          {
+            "family": "Chen",
+            "given": [
+              "Wei",
+              "Ming"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1975-02-17",
+        "address": [
+          {
+            "city": "Seattle",
+            "state": "Washington",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "206-555-0707"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Mandarin"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "84757009",
+            "display": "Epilepsy",
+            "onset": "2008-11-14"
+          },
+          {
+            "code": "366979004",
+            "display": "Vitamin B12 deficiency",
+            "onset": "2023-01-30"
+          }
+        ],
+        "medications": [
+          {
+            "code": "309985",
+            "display": "Levetiracetam 1000mg",
+            "start": "2009-01-05"
+          },
+          {
+            "code": "318340",
+            "display": "Cyanocobalamin 1000mcg",
+            "start": "2023-02-01"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 119,
+            "unit": "mmHg",
+            "date": "2024-10-14"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 77,
+            "unit": "mmHg",
+            "date": "2024-10-14"
+          },
+          {
+            "code": "2132-9",
+            "display": "Vitamin B12",
+            "value": 342,
+            "unit": "pg/mL",
+            "date": "2024-10-14"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 24.3,
+            "unit": "kg/m2",
+            "date": "2024-10-14"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Neurology follow-up",
+            "date": "2024-10-14",
+            "provider": "Dr. Elena Vasquez"
+          },
+          {
+            "class": "outpatient",
+            "type": "Annual physical",
+            "date": "2024-04-08",
+            "provider": "Dr. Kevin Park"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Phenytoin",
+            "reaction": "Gingival hyperplasia",
+            "severity": "moderate"
+          }
+        ],
+        "notes": "Seizure-free for 8 years on levetiracetam. B12 improving with supplementation. Continue current AED - no changes needed. Driving restriction lifted 2022."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0008-4e5f-8a9b-c0d1e2f30008",
+        "name": [
+          {
+            "family": "Rodriguez",
+            "given": [
+              "Sofia",
+              "Elena"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2001-08-30",
+        "address": [
+          {
+            "city": "Miami",
+            "state": "Florida",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "305-555-0808"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Single"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Spanish"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "44054006",
+            "display": "Type 1 diabetes mellitus",
+            "onset": "2008-06-20"
+          },
+          {
+            "code": "366979004",
+            "display": "Celiac disease",
+            "onset": "2015-03-11"
+          }
+        ],
+        "medications": [
+          {
+            "code": "274783",
+            "display": "Insulin glargine 300 units/mL (Toujeo)",
+            "start": "2020-07-01"
+          },
+          {
+            "code": "274783",
+            "display": "Insulin lispro 100 units/mL (Humalog)",
+            "start": "2008-07-01"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 108,
+            "unit": "mmHg",
+            "date": "2024-12-02"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 68,
+            "unit": "mmHg",
+            "date": "2024-12-02"
+          },
+          {
+            "code": "4548-4",
+            "display": "HbA1c",
+            "value": 6.9,
+            "unit": "%",
+            "date": "2024-12-02"
+          },
+          {
+            "code": "2339-0",
+            "display": "Blood Glucose",
+            "value": 118,
+            "unit": "mg/dL",
+            "date": "2024-12-02"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 21.0,
+            "unit": "kg/m2",
+            "date": "2024-12-02"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Endocrinology follow-up",
+            "date": "2024-12-02",
+            "provider": "Dr. Nadia Cohen"
+          },
+          {
+            "class": "outpatient",
+            "type": "CGM review",
+            "date": "2024-09-10",
+            "provider": "Dr. Nadia Cohen"
+          },
+          {
+            "class": "emergency",
+            "type": "Hypoglycemia episode",
+            "date": "2023-12-24",
+            "provider": "Emergency Dept"
+          }
+        ],
+        "allergies": [],
+        "notes": "Excellent glycemic control with CGM and closed-loop pump. Strictly gluten-free diet. HbA1c trending down. Last hypo episode resolved with glucagon."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0009-4e5f-8a9b-c0d1e2f30009",
+        "name": [
+          {
+            "family": "Brown",
+            "given": [
+              "David",
+              "Aaron"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1983-01-12",
+        "address": [
+          {
+            "city": "Denver",
+            "state": "Colorado",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "720-555-0909"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "69896004",
+            "display": "Rheumatoid arthritis",
+            "onset": "2017-08-15"
+          },
+          {
+            "code": "73211009",
+            "display": "Hyperlipidemia",
+            "onset": "2020-05-12"
+          },
+          {
+            "code": "366979004",
+            "display": "Folate deficiency",
+            "onset": "2021-03-22"
+          }
+        ],
+        "medications": [
+          {
+            "code": "105078",
+            "display": "Methotrexate 15mg weekly",
+            "start": "2017-09-01"
+          },
+          {
+            "code": "318340",
+            "display": "Folic acid 1mg daily",
+            "start": "2017-09-01"
+          },
+          {
+            "code": "617314",
+            "display": "Rosuvastatin 10mg",
+            "start": "2020-05-20"
+          },
+          {
+            "code": "308460",
+            "display": "Hydroxychloroquine 400mg",
+            "start": "2018-01-15"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 124,
+            "unit": "mmHg",
+            "date": "2024-11-05"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 80,
+            "unit": "mmHg",
+            "date": "2024-11-05"
+          },
+          {
+            "code": "11156-7",
+            "display": "ESR",
+            "value": 28,
+            "unit": "mm/h",
+            "date": "2024-11-05"
+          },
+          {
+            "code": "9317-9",
+            "display": "Platelet count",
+            "value": 215,
+            "unit": "10*3/uL",
+            "date": "2024-11-05"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 25.7,
+            "unit": "kg/m2",
+            "date": "2024-11-05"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Rheumatology follow-up",
+            "date": "2024-11-05",
+            "provider": "Dr. Ingrid Hansen"
+          },
+          {
+            "class": "outpatient",
+            "type": "Liver function monitoring",
+            "date": "2024-08-12",
+            "provider": "Dr. Ingrid Hansen"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Sulfasalazine",
+            "reaction": "Hepatotoxicity",
+            "severity": "severe"
+          }
+        ],
+        "notes": "RA well-controlled on MTX + HCQ combination. ESR normalized. LFTs within normal range. Continue current DMARDs. Chest X-ray annually for MTX monitoring."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0010-4e5f-8a9b-c0d1e2f30010",
+        "name": [
+          {
+            "family": "Kim",
+            "given": [
+              "Ji-Yeon",
+              "Grace"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1997-06-04",
+        "address": [
+          {
+            "city": "Los Angeles",
+            "state": "California",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "213-555-1010"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Single"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Korean"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "73211009",
+            "display": "Polycystic ovary syndrome",
+            "onset": "2016-11-20"
+          },
+          {
+            "code": "36923009",
+            "display": "Generalized anxiety disorder",
+            "onset": "2019-02-14"
+          },
+          {
+            "code": "366979004",
+            "display": "Iron deficiency anemia",
+            "onset": "2022-08-09"
+          }
+        ],
+        "medications": [
+          {
+            "code": "860975",
+            "display": "Metformin 500mg (for PCOS)",
+            "start": "2017-01-10"
+          },
+          {
+            "code": "748798",
+            "display": "Escitalopram 10mg",
+            "start": "2019-03-01"
+          },
+          {
+            "code": "318340",
+            "display": "Ferrous sulfate 325mg",
+            "start": "2022-08-15"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 115,
+            "unit": "mmHg",
+            "date": "2024-10-21"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 73,
+            "unit": "mmHg",
+            "date": "2024-10-21"
+          },
+          {
+            "code": "718-7",
+            "display": "Hemoglobin",
+            "value": 12.1,
+            "unit": "g/dL",
+            "date": "2024-10-21"
+          },
+          {
+            "code": "2339-0",
+            "display": "Fasting Glucose",
+            "value": 98,
+            "unit": "mg/dL",
+            "date": "2024-10-21"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 28.2,
+            "unit": "kg/m2",
+            "date": "2024-10-21"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "OB/GYN follow-up",
+            "date": "2024-10-21",
+            "provider": "Dr. Laura Moreno"
+          },
+          {
+            "class": "outpatient",
+            "type": "Mental health check",
+            "date": "2024-07-15",
+            "provider": "Dr. Samuel Osei"
+          }
+        ],
+        "allergies": [],
+        "notes": "PCOS managed with lifestyle modification and metformin. Anemia improving with iron supplementation. Anxiety well-controlled. Discussing fertility options."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0011-4e5f-8a9b-c0d1e2f30011",
+        "name": [
+          {
+            "family": "Anderson",
+            "given": [
+              "James",
+              "Earl"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1952-10-31",
+        "address": [
+          {
+            "city": "Nashville",
+            "state": "Tennessee",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "615-555-1111"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "363346000",
+            "display": "Prostate adenocarcinoma stage II",
+            "onset": "2020-07-15"
+          },
+          {
+            "code": "38341003",
+            "display": "Hypertension",
+            "onset": "2003-05-08"
+          },
+          {
+            "code": "73211009",
+            "display": "Hyperlipidemia",
+            "onset": "2004-09-22"
+          },
+          {
+            "code": "57676002",
+            "display": "Chronic low back pain",
+            "onset": "2018-03-14"
+          }
+        ],
+        "medications": [
+          {
+            "code": "748798",
+            "display": "Leuprolide acetate 7.5mg IM monthly",
+            "start": "2020-08-01"
+          },
+          {
+            "code": "309985",
+            "display": "Enzalutamide 160mg daily",
+            "start": "2021-03-15"
+          },
+          {
+            "code": "314076",
+            "display": "Amlodipine 5mg",
+            "start": "2003-05-20"
+          },
+          {
+            "code": "617314",
+            "display": "Atorvastatin 40mg",
+            "start": "2004-10-01"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 132,
+            "unit": "mmHg",
+            "date": "2024-11-30"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 84,
+            "unit": "mmHg",
+            "date": "2024-11-30"
+          },
+          {
+            "code": "2857-1",
+            "display": "PSA",
+            "value": 0.08,
+            "unit": "ng/mL",
+            "date": "2024-11-30"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 28.5,
+            "unit": "kg/m2",
+            "date": "2024-11-30"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Oncology follow-up",
+            "date": "2024-11-30",
+            "provider": "Dr. Gregory Stone"
+          },
+          {
+            "class": "outpatient",
+            "type": "Radiation oncology",
+            "date": "2022-04-15",
+            "provider": "Dr. Fiona McKay"
+          },
+          {
+            "class": "outpatient",
+            "type": "Pain management",
+            "date": "2024-09-03",
+            "provider": "Dr. Henry Wu"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Morphine",
+            "reaction": "Respiratory depression",
+            "severity": "severe"
+          }
+        ],
+        "notes": "Prostate cancer - biochemical remission on ADT + enzalutamide. PSA undetectable. Bone density monitoring annually for ADT side effects."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0012-4e5f-8a9b-c0d1e2f30012",
+        "name": [
+          {
+            "family": "Okonkwo",
+            "given": [
+              "Adaeze",
+              "Chisom"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1971-05-26",
+        "address": [
+          {
+            "city": "Baltimore",
+            "state": "Maryland",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "410-555-1212"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Igbo"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "417281009",
+            "display": "Sickle cell disease (HbSS)",
+            "onset": "1971-06-02"
+          },
+          {
+            "code": "38341003",
+            "display": "Hypertension",
+            "onset": "2014-08-18"
+          },
+          {
+            "code": "40055000",
+            "display": "Chronic kidney disease stage 2",
+            "onset": "2023-05-14"
+          }
+        ],
+        "medications": [
+          {
+            "code": "860975",
+            "display": "Hydroxyurea 1000mg daily",
+            "start": "2000-03-10"
+          },
+          {
+            "code": "308460",
+            "display": "Folic acid 5mg daily",
+            "start": "1995-01-01"
+          },
+          {
+            "code": "314076",
+            "display": "Losartan 50mg",
+            "start": "2014-09-01"
+          },
+          {
+            "code": "274783",
+            "display": "Voxelotor 1500mg daily",
+            "start": "2022-06-15"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 126,
+            "unit": "mmHg",
+            "date": "2024-11-18"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 80,
+            "unit": "mmHg",
+            "date": "2024-11-18"
+          },
+          {
+            "code": "718-7",
+            "display": "Hemoglobin",
+            "value": 9.2,
+            "unit": "g/dL",
+            "date": "2024-11-18"
+          },
+          {
+            "code": "33914-3",
+            "display": "eGFR",
+            "value": 74,
+            "unit": "mL/min/1.73m2",
+            "date": "2024-11-18"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 24.1,
+            "unit": "kg/m2",
+            "date": "2024-11-18"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Hematology follow-up",
+            "date": "2024-11-18",
+            "provider": "Dr. Yolanda Price"
+          },
+          {
+            "class": "inpatient",
+            "type": "Vaso-occlusive crisis",
+            "date": "2024-03-07",
+            "provider": "General Hospital"
+          },
+          {
+            "class": "outpatient",
+            "type": "Nephrology",
+            "date": "2024-07-30",
+            "provider": "Dr. Tobias Reinhardt"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "NSAIDs",
+            "reaction": "Renal impairment",
+            "severity": "severe"
+          }
+        ],
+        "notes": "SCD HbSS. Hydroxyurea and voxelotor providing benefit. Hemoglobin baseline 8.5-9.5 g/dL. Avoid dehydration and temperature extremes. Renal function being monitored."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0013-4e5f-8a9b-c0d1e2f30013",
+        "name": [
+          {
+            "family": "Dubois",
+            "given": [
+              "Henri",
+              "Laurent"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1960-03-08",
+        "address": [
+          {
+            "city": "New Orleans",
+            "state": "Louisiana",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "504-555-1313"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Divorced"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "French"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "19943007",
+            "display": "Liver cirrhosis (alcoholic)",
+            "onset": "2015-10-12"
+          },
+          {
+            "code": "197480006",
+            "display": "Alcohol use disorder",
+            "onset": "2005-01-01"
+          },
+          {
+            "code": "73211009",
+            "display": "Hyperlipidemia",
+            "onset": "2018-07-04"
+          },
+          {
+            "code": "366979004",
+            "display": "Thiamine deficiency",
+            "onset": "2020-08-20"
+          }
+        ],
+        "medications": [
+          {
+            "code": "892244",
+            "display": "Spironolactone 100mg",
+            "start": "2016-01-15"
+          },
+          {
+            "code": "308460",
+            "display": "Furosemide 40mg",
+            "start": "2016-01-15"
+          },
+          {
+            "code": "274783",
+            "display": "Propranolol 20mg",
+            "start": "2016-03-01"
+          },
+          {
+            "code": "318340",
+            "display": "Thiamine 100mg daily",
+            "start": "2020-08-25"
+          },
+          {
+            "code": "318340",
+            "display": "Lactulose 30mL TID",
+            "start": "2019-06-10"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 102,
+            "unit": "mmHg",
+            "date": "2024-10-25"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 64,
+            "unit": "mmHg",
+            "date": "2024-10-25"
+          },
+          {
+            "code": "1975-2",
+            "display": "Total Bilirubin",
+            "value": 2.8,
+            "unit": "mg/dL",
+            "date": "2024-10-25"
+          },
+          {
+            "code": "1920-8",
+            "display": "ALT",
+            "value": 88,
+            "unit": "U/L",
+            "date": "2024-10-25"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 22.3,
+            "unit": "kg/m2",
+            "date": "2024-10-25"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Hepatology follow-up",
+            "date": "2024-10-25",
+            "provider": "Dr. Marie Fontaine"
+          },
+          {
+            "class": "inpatient",
+            "type": "Hepatic encephalopathy",
+            "date": "2024-01-20",
+            "provider": "General Hospital"
+          },
+          {
+            "class": "outpatient",
+            "type": "Substance use counseling",
+            "date": "2024-09-11",
+            "provider": "Counselor J. Tran"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Acetaminophen (high doses)",
+            "reaction": "Hepatotoxicity",
+            "severity": "severe"
+          }
+        ],
+        "notes": "Child-Pugh B cirrhosis. Abstinent for 2 years. MELD score 12. Listed for transplant evaluation. Dietary sodium restriction < 2g/day. No hepatocellular carcinoma on last imaging."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0014-4e5f-8a9b-c0d1e2f30014",
+        "name": [
+          {
+            "family": "Singh",
+            "given": [
+              "Gurpreet",
+              "Kaur"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1985-07-16",
+        "address": [
+          {
+            "city": "Fresno",
+            "state": "California",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "559-555-1414"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Punjabi"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "24700007",
+            "display": "Multiple sclerosis, relapsing-remitting",
+            "onset": "2011-04-22"
+          },
+          {
+            "code": "36923009",
+            "display": "Major depressive disorder",
+            "onset": "2013-09-30"
+          },
+          {
+            "code": "366979004",
+            "display": "Vitamin D deficiency",
+            "onset": "2012-02-14"
+          }
+        ],
+        "medications": [
+          {
+            "code": "748798",
+            "display": "Natalizumab 300mg IV monthly",
+            "start": "2019-07-01"
+          },
+          {
+            "code": "596926",
+            "display": "Duloxetine 60mg",
+            "start": "2013-10-15"
+          },
+          {
+            "code": "318340",
+            "display": "Vitamin D3 5000IU",
+            "start": "2012-02-20"
+          },
+          {
+            "code": "318340",
+            "display": "Baclofen 10mg TID (spasticity)",
+            "start": "2016-08-30"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 116,
+            "unit": "mmHg",
+            "date": "2024-11-12"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 75,
+            "unit": "mmHg",
+            "date": "2024-11-12"
+          },
+          {
+            "code": "1990-1",
+            "display": "Vitamin D 25-OH",
+            "value": 48,
+            "unit": "ng/mL",
+            "date": "2024-11-12"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 23.9,
+            "unit": "kg/m2",
+            "date": "2024-11-12"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Neurology MS clinic",
+            "date": "2024-11-12",
+            "provider": "Dr. Benjamin Park"
+          },
+          {
+            "class": "outpatient",
+            "type": "MRI brain review",
+            "date": "2024-05-20",
+            "provider": "Dr. Carolyn Drake"
+          },
+          {
+            "class": "outpatient",
+            "type": "Psychiatry",
+            "date": "2024-08-05",
+            "provider": "Dr. Michael Torres"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Interferon beta (intolerance)",
+            "reaction": "Flu-like syndrome, severe fatigue",
+            "severity": "moderate"
+          }
+        ],
+        "notes": "RRMS stable on natalizumab - no new lesions on latest MRI. EDSS 2.5. JC virus antibody positive - monitoring frequency increased. Depression well-managed on duloxetine."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0015-4e5f-8a9b-c0d1e2f30015",
+        "name": [
+          {
+            "family": "Park",
+            "given": [
+              "Hyun-Soo",
+              "Daniel"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1990-12-29",
+        "address": [
+          {
+            "city": "Portland",
+            "state": "Oregon",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "503-555-1515"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Single"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Korean"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "40122008",
+            "display": "Inflammatory bowel disease (Crohn's)",
+            "onset": "2014-05-10"
+          },
+          {
+            "code": "366979004",
+            "display": "Iron deficiency anemia",
+            "onset": "2016-11-22"
+          },
+          {
+            "code": "57676002",
+            "display": "Perianal fistula",
+            "onset": "2020-08-03"
+          }
+        ],
+        "medications": [
+          {
+            "code": "748798",
+            "display": "Adalimumab 160mg SC q2w",
+            "start": "2018-03-20"
+          },
+          {
+            "code": "105078",
+            "display": "Azathioprine 100mg daily",
+            "start": "2016-01-10"
+          },
+          {
+            "code": "318340",
+            "display": "Ferrous fumarate 200mg daily",
+            "start": "2016-12-01"
+          },
+          {
+            "code": "892244",
+            "display": "Mesalamine 2.4g daily",
+            "start": "2014-06-01"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 120,
+            "unit": "mmHg",
+            "date": "2024-11-25"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 78,
+            "unit": "mmHg",
+            "date": "2024-11-25"
+          },
+          {
+            "code": "718-7",
+            "display": "Hemoglobin",
+            "value": 11.8,
+            "unit": "g/dL",
+            "date": "2024-11-25"
+          },
+          {
+            "code": "4631-8",
+            "display": "Fecal calprotectin",
+            "value": 185,
+            "unit": "ug/g",
+            "date": "2024-11-25"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 21.6,
+            "unit": "kg/m2",
+            "date": "2024-11-25"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "GI follow-up",
+            "date": "2024-11-25",
+            "provider": "Dr. Vivian Chou"
+          },
+          {
+            "class": "inpatient",
+            "type": "Fistula drainage",
+            "date": "2023-09-15",
+            "provider": "Colorectal Surgery"
+          },
+          {
+            "class": "outpatient",
+            "type": "Colonoscopy",
+            "date": "2024-06-18",
+            "provider": "Dr. Vivian Chou"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Infliximab",
+            "reaction": "Infusion reaction",
+            "severity": "severe"
+          }
+        ],
+        "notes": "Crohn's partially controlled on adalimumab + azathioprine. Calprotectin elevated. Discussing biologic switch vs dose escalation. Fistula healing. Low iron - monitor."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0016-4e5f-8a9b-c0d1e2f30016",
+        "name": [
+          {
+            "family": "Garcia",
+            "given": [
+              "Isabella",
+              "Maria"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2015-04-12",
+        "address": [
+          {
+            "city": "Albuquerque",
+            "state": "New Mexico",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "505-555-1616"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Single"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Spanish"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "195967001",
+            "display": "Moderate persistent asthma",
+            "onset": "2018-09-03"
+          },
+          {
+            "code": "24079001",
+            "display": "Atopic dermatitis",
+            "onset": "2016-02-20"
+          },
+          {
+            "code": "367498001",
+            "display": "Seasonal allergic rhinitis",
+            "onset": "2019-04-10"
+          }
+        ],
+        "medications": [
+          {
+            "code": "896188",
+            "display": "Fluticasone 44mcg inhaler",
+            "start": "2018-09-10"
+          },
+          {
+            "code": "745679",
+            "display": "Albuterol 90mcg inhaler (rescue)",
+            "start": "2018-09-10"
+          },
+          {
+            "code": "748798",
+            "display": "Dupilumab 200mg SC q2w (eczema)",
+            "start": "2023-01-20"
+          },
+          {
+            "code": "309985",
+            "display": "Cetirizine 5mg daily (rhinitis)",
+            "start": "2019-04-15"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 96,
+            "unit": "mmHg",
+            "date": "2024-10-07"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 60,
+            "unit": "mmHg",
+            "date": "2024-10-07"
+          },
+          {
+            "code": "59408-5",
+            "display": "SpO2",
+            "value": 99,
+            "unit": "%",
+            "date": "2024-10-07"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 16.8,
+            "unit": "kg/m2",
+            "date": "2024-10-07"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Pediatric pulmonology",
+            "date": "2024-10-07",
+            "provider": "Dr. Nathaniel Ross"
+          },
+          {
+            "class": "outpatient",
+            "type": "Pediatric dermatology",
+            "date": "2024-07-14",
+            "provider": "Dr. Emma Collins"
+          },
+          {
+            "class": "urgent_care",
+            "type": "Asthma attack",
+            "date": "2024-02-25",
+            "provider": "Pediatric Urgent Care"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Peanuts",
+            "reaction": "Anaphylaxis",
+            "severity": "severe"
+          },
+          {
+            "substance": "Tree nuts",
+            "reaction": "Urticaria",
+            "severity": "moderate"
+          },
+          {
+            "substance": "Egg",
+            "reaction": "Urticaria",
+            "severity": "mild"
+          }
+        ],
+        "notes": "Pediatric patient. Atopic triad present. Dupilumab showing excellent response for eczema. EpiPen prescribed for peanut allergy. Asthma action plan given to school."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0017-4e5f-8a9b-c0d1e2f30017",
+        "name": [
+          {
+            "family": "Fernandez",
+            "given": [
+              "Miguel",
+              "Antonio"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1955-08-05",
+        "address": [
+          {
+            "city": "San Antonio",
+            "state": "Texas",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "210-555-1717"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Spanish"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "431855005",
+            "display": "Chronic kidney disease stage 4",
+            "onset": "2019-06-30"
+          },
+          {
+            "code": "44054006",
+            "display": "Diabetes mellitus type 2",
+            "onset": "2000-04-15"
+          },
+          {
+            "code": "38341003",
+            "display": "Hypertension",
+            "onset": "1998-07-20"
+          },
+          {
+            "code": "73211009",
+            "display": "Hyperlipidemia",
+            "onset": "2001-03-10"
+          },
+          {
+            "code": "36923009",
+            "display": "Secondary hyperparathyroidism",
+            "onset": "2022-11-05"
+          }
+        ],
+        "medications": [
+          {
+            "code": "860975",
+            "display": "Insulin degludec 40 units (basal)",
+            "start": "2015-09-10"
+          },
+          {
+            "code": "274783",
+            "display": "Insulin aspart (mealtime)",
+            "start": "2015-09-10"
+          },
+          {
+            "code": "314076",
+            "display": "Amlodipine 10mg",
+            "start": "1998-08-01"
+          },
+          {
+            "code": "892244",
+            "display": "Furosemide 80mg",
+            "start": "2020-01-10"
+          },
+          {
+            "code": "748798",
+            "display": "Cinacalcet 30mg (PTH control)",
+            "start": "2022-11-15"
+          },
+          {
+            "code": "617314",
+            "display": "Pravastatin 40mg (statin safe for CKD4)",
+            "start": "2001-04-01"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 142,
+            "unit": "mmHg",
+            "date": "2024-12-03"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 90,
+            "unit": "mmHg",
+            "date": "2024-12-03"
+          },
+          {
+            "code": "33914-3",
+            "display": "eGFR",
+            "value": 22,
+            "unit": "mL/min/1.73m2",
+            "date": "2024-12-03"
+          },
+          {
+            "code": "4548-4",
+            "display": "HbA1c",
+            "value": 8.1,
+            "unit": "%",
+            "date": "2024-12-03"
+          },
+          {
+            "code": "2339-0",
+            "display": "Fasting Glucose",
+            "value": 198,
+            "unit": "mg/dL",
+            "date": "2024-12-03"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 32.1,
+            "unit": "kg/m2",
+            "date": "2024-12-03"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Nephrology CKD clinic",
+            "date": "2024-12-03",
+            "provider": "Dr. Anika Sharma"
+          },
+          {
+            "class": "outpatient",
+            "type": "Dialysis planning",
+            "date": "2024-09-16",
+            "provider": "Dr. Anika Sharma"
+          },
+          {
+            "class": "inpatient",
+            "type": "AKI on CKD",
+            "date": "2024-04-28",
+            "provider": "General Hospital"
+          }
+        ],
+        "allergies": [],
+        "notes": "CKD4 progressing toward ESRD. Dialysis access planning initiated (AV fistula). HbA1c above target. Phosphorus diet restriction. BP requires closer management."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0018-4e5f-8a9b-c0d1e2f30018",
+        "name": [
+          {
+            "family": "OBrien",
+            "given": [
+              "Kathleen",
+              "Mary"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1948-02-14",
+        "address": [
+          {
+            "city": "Philadelphia",
+            "state": "Pennsylvania",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "215-555-1818"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Widowed"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "64859006",
+            "display": "Osteoporosis",
+            "onset": "2012-06-18"
+          },
+          {
+            "code": "73211009",
+            "display": "Hyperlipidemia",
+            "onset": "2005-10-09"
+          },
+          {
+            "code": "36923009",
+            "display": "Major depressive disorder (remission)",
+            "onset": "2016-03-25"
+          },
+          {
+            "code": "40055000",
+            "display": "Macular degeneration (dry, bilateral)",
+            "onset": "2020-09-14"
+          }
+        ],
+        "medications": [
+          {
+            "code": "748798",
+            "display": "Alendronate 70mg weekly",
+            "start": "2012-07-01"
+          },
+          {
+            "code": "318340",
+            "display": "Calcium carbonate 500mg TID",
+            "start": "2012-07-01"
+          },
+          {
+            "code": "318340",
+            "display": "Vitamin D3 2000IU daily",
+            "start": "2012-07-01"
+          },
+          {
+            "code": "617314",
+            "display": "Rosuvastatin 5mg",
+            "start": "2005-11-01"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 134,
+            "unit": "mmHg",
+            "date": "2024-11-04"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 78,
+            "unit": "mmHg",
+            "date": "2024-11-04"
+          },
+          {
+            "code": "38483-4",
+            "display": "DEXA T-score (lumbar spine)",
+            "value": -2.8,
+            "unit": "SD",
+            "date": "2024-05-10"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 23.2,
+            "unit": "kg/m2",
+            "date": "2024-11-04"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Geriatric follow-up",
+            "date": "2024-11-04",
+            "provider": "Dr. Patricia Gonzalez"
+          },
+          {
+            "class": "outpatient",
+            "type": "Ophthalmology",
+            "date": "2024-08-27",
+            "provider": "Dr. Charles Levin"
+          },
+          {
+            "class": "outpatient",
+            "type": "DEXA scan review",
+            "date": "2024-05-10",
+            "provider": "Dr. Patricia Gonzalez"
+          }
+        ],
+        "allergies": [
+          {
+            "substance": "Bisphosphonates IV",
+            "reaction": "Esophageal irritation (oral)",
+            "severity": "mild"
+          }
+        ],
+        "notes": "Osteoporosis stable. T-score improved from -3.1 two years ago. Good compliance with alendronate. Depression in full remission - no medications needed. Vitamin supplementation AREDS2 recommended for macular degeneration."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0019-4e5f-8a9b-c0d1e2f30019",
+        "name": [
+          {
+            "family": "Nakamura",
+            "given": [
+              "Hiroshi",
+              "Paul"
+            ]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1967-09-03",
+        "address": [
+          {
+            "city": "Honolulu",
+            "state": "Hawaii",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "808-555-1919"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Married"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "Japanese"
+            }
+          },
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "73211009",
+            "display": "Gout",
+            "onset": "2016-02-28"
+          },
+          {
+            "code": "38341003",
+            "display": "Hypertension",
+            "onset": "2013-05-12"
+          },
+          {
+            "code": "44054006",
+            "display": "Pre-diabetes (IGT)",
+            "onset": "2021-10-15"
+          }
+        ],
+        "medications": [
+          {
+            "code": "309985",
+            "display": "Allopurinol 300mg daily",
+            "start": "2016-03-15"
+          },
+          {
+            "code": "314076",
+            "display": "Losartan 50mg (also lowers uric acid)",
+            "start": "2013-06-01"
+          },
+          {
+            "code": "308460",
+            "display": "Colchicine 0.6mg prn acute flares",
+            "start": "2016-03-15"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 130,
+            "unit": "mmHg",
+            "date": "2024-10-10"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 84,
+            "unit": "mmHg",
+            "date": "2024-10-10"
+          },
+          {
+            "code": "3084-1",
+            "display": "Uric acid",
+            "value": 5.9,
+            "unit": "mg/dL",
+            "date": "2024-10-10"
+          },
+          {
+            "code": "2339-0",
+            "display": "Fasting Glucose",
+            "value": 110,
+            "unit": "mg/dL",
+            "date": "2024-10-10"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 26.5,
+            "unit": "kg/m2",
+            "date": "2024-10-10"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Primary care follow-up",
+            "date": "2024-10-10",
+            "provider": "Dr. Stephanie Liu"
+          },
+          {
+            "class": "urgent_care",
+            "type": "Acute gout flare left toe",
+            "date": "2024-07-03",
+            "provider": "Urgent Care Clinic"
+          }
+        ],
+        "allergies": [],
+        "notes": "Gout controlled on allopurinol - uric acid at target < 6. Had one flare in July. Lifestyle counseling: limit alcohol, red meat, shellfish. Pre-diabetes - dietary intervention ongoing."
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "a1b2c3d4-0020-4e5f-8a9b-c0d1e2f30020",
+        "name": [
+          {
+            "family": "Taylor",
+            "given": [
+              "Samantha",
+              "Jo"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "2003-11-17",
+        "address": [
+          {
+            "city": "Columbus",
+            "state": "Ohio",
+            "country": "US"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "614-555-2020"
+          }
+        ],
+        "maritalStatus": {
+          "text": "Single"
+        },
+        "communication": [
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "conditions": [
+          {
+            "code": "36923009",
+            "display": "Attention deficit hyperactivity disorder",
+            "onset": "2010-08-25"
+          },
+          {
+            "code": "57676002",
+            "display": "Scoliosis (mild, 18 degrees)",
+            "onset": "2015-11-10"
+          },
+          {
+            "code": "36923009",
+            "display": "Social anxiety disorder",
+            "onset": "2020-01-14"
+          }
+        ],
+        "medications": [
+          {
+            "code": "748798",
+            "display": "Methylphenidate ER 36mg daily",
+            "start": "2011-01-10"
+          },
+          {
+            "code": "596926",
+            "display": "Escitalopram 5mg daily",
+            "start": "2020-02-01"
+          }
+        ],
+        "observations": [
+          {
+            "code": "8480-6",
+            "display": "Systolic BP",
+            "value": 110,
+            "unit": "mmHg",
+            "date": "2024-09-23"
+          },
+          {
+            "code": "8462-4",
+            "display": "Diastolic BP",
+            "value": 70,
+            "unit": "mmHg",
+            "date": "2024-09-23"
+          },
+          {
+            "code": "8867-4",
+            "display": "Heart rate",
+            "value": 78,
+            "unit": "bpm",
+            "date": "2024-09-23"
+          },
+          {
+            "code": "39156-5",
+            "display": "BMI",
+            "value": 20.4,
+            "unit": "kg/m2",
+            "date": "2024-09-23"
+          }
+        ],
+        "encounters": [
+          {
+            "class": "outpatient",
+            "type": "Psychiatry follow-up",
+            "date": "2024-09-23",
+            "provider": "Dr. Oliver James"
+          },
+          {
+            "class": "outpatient",
+            "type": "Orthopedics spine check",
+            "date": "2024-06-11",
+            "provider": "Dr. Angela Turner"
+          },
+          {
+            "class": "outpatient",
+            "type": "Annual physical",
+            "date": "2024-09-23",
+            "provider": "Dr. Christina Bell"
+          }
+        ],
+        "allergies": [],
+        "notes": "ADHD well-managed on methylphenidate - academic performance improved. Scoliosis stable at 18 degrees - no surgical intervention. Anxiety improved. Continue CBT in parallel with medication."
+      }
+    }
+  ]
+}

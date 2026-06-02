@@ -5,11 +5,11 @@ import sys
 import os
 import time
 import threading
-from reencrypt import run_reencryption
-
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 sys.stdout.reconfigure(encoding='utf-8')
+
+from reencrypt import run_reencryption
 
 from flask import Flask, request, jsonify
 import requests as http
@@ -46,6 +46,15 @@ AUDIT_PATH  = os.path.join(os.path.dirname(__file__), "audit_b.json")
 # ─────────────────────────────────────────────
 
 app = Flask(__name__)
+
+
+@app.after_request
+def _cors(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    return response
+
 
 _lock = threading.Lock()
 
@@ -205,14 +214,15 @@ def _trigger_ratchet():
             state["ratcheting"] = False
         return
 
-    # Derive new key + immediately zero old key
+    # Derive new key — keep a copy of old_key for re-encryption
+    old_key_copy = bytes(old_key)  # snapshot before zeroing
     new_key = ratchet(old_key, epoch=new_epoch, server_id=SERVER_ID)
     zero_key(old_key)
     print(f"[{SERVER_ID}] K_{old_epoch} erased")
 
-    # Re-encrypt all records
+    # Re-encrypt all records using the saved copy
     result = run_reencryption(
-    old_key       = old_key,
+    old_key       = old_key_copy,
     new_key       = new_key,
     old_epoch     = old_epoch,
     new_epoch     = new_epoch,
@@ -233,32 +243,53 @@ def _trigger_ratchet():
         "server":    SERVER_ID,
     })
 
-    # ── SERVER B SPECIFIC: promote self to primary ──
-    with _lock:
-        state["role"]     = "primary"
-        state["isolated"] = False
+    # ── FAILOVER LOGIC ──
+    current_role = state["role"]
+    
+    if current_role == "primary":
+        print(f"[{SERVER_ID}] Notifying Server A to promote...")
+        promoted = _notify_peer("/promote", {
+            "new_epoch":   new_epoch,
+            "from_server": SERVER_ID,
+        })
 
-    audit.append(FAILOVER_COMPLETE, {
-        "new_primary": SERVER_ID,
-        "epoch":       new_epoch,
-    })
+        if promoted:
+            audit.append(FAILOVER_INITIATED, {
+                "new_primary": "server_a",
+                "epoch":       new_epoch,
+            })
+            print(f"[{SERVER_ID}] Server A notified")
+        else:
+            print(f"[{SERVER_ID}] WARNING: Could not reach Server A")
 
-    print(f"[{SERVER_ID}] PROMOTED to primary — epoch {new_epoch}")
+        with _lock:
+            state["isolated"] = True
+            state["role"]     = "standby"
 
-    # ── SERVER B SPECIFIC: notify Server A to isolate ──
-    print(f"[{SERVER_ID}] Notifying Server A to isolate...")
-    notified = _notify_peer("/isolate", {
-        "new_epoch":   new_epoch,
-        "from_server": SERVER_ID,
-    })
-
-    if notified:
-        print(f"[{SERVER_ID}] Server A notified to isolate")
+        audit.append(SERVER_ISOLATED, {
+            "server": SERVER_ID,
+            "epoch":  new_epoch,
+            "reason": "breach detected — ratchet complete",
+        })
+        print(f"[{SERVER_ID}] Isolated. Server A is now primary.")
     else:
-        print(f"[{SERVER_ID}] WARNING: Could not reach Server A")
+        with _lock:
+            state["role"]     = "primary"
+            state["isolated"] = False
+
+        audit.append(FAILOVER_COMPLETE, {
+            "new_primary": SERVER_ID,
+            "epoch":       new_epoch,
+        })
+        print(f"[{SERVER_ID}] PROMOTED to primary — epoch {new_epoch}")
+
+        print(f"[{SERVER_ID}] Notifying Server A to isolate...")
+        _notify_peer("/isolate", {
+            "new_epoch":   new_epoch,
+            "from_server": SERVER_ID,
+        })
 
     detector.reset()
-    print(f"[{SERVER_ID}] Now primary. Server A is standby.")
 
 
 # ─────────────────────────────────────────────
@@ -477,7 +508,7 @@ def heartbeat():
 @app.route("/score", methods=["GET"])
 def score():
     ip      = _get_request_ip()
-    current = detector.compute(ip)
+    current = detector.current_score or detector.compute(ip)
     status  = detector.get_status()
     return _ok({
         "score":   current,
@@ -510,38 +541,54 @@ def trigger_ratchet_endpoint():
     })
 
 
-# ── SERVER B SPECIFIC: handles /promote (called by Server A) ──
 @app.route("/promote", methods=["POST"])
 def promote():
     """
-    Called by Server A when it detects a breach.
-    Server B takes over as primary.
+    Called by peer after it ratchets (when peer was primary).
+    Tells this server to become primary.
     """
     data      = request.get_json() or {}
-    new_epoch = int(data.get("new_epoch", state["epoch"] + 1))
+    new_epoch = int(data.get("new_epoch", state["epoch"]))
+    peer_id   = data.get("from_server", "peer")
 
     with _lock:
+        state["isolated"] = False
         state["role"]     = "primary"
         state["epoch"]    = new_epoch
-        state["isolated"] = False
 
     audit.append(FAILOVER_COMPLETE, {
         "new_primary": SERVER_ID,
         "epoch":       new_epoch,
-        "from":        data.get("from_server", "server_a"),
+        "reason":      f"instructed by {peer_id}",
     })
 
-    print(f"[{SERVER_ID}] PROMOTED to primary — epoch {new_epoch}")
-    return _ok({
-        "message":   "Server B promoted to primary",
-        "new_epoch": new_epoch,
-        "role":      state["role"],
+    print(f"[{SERVER_ID}] Promoted by {peer_id} — now primary")
+    return _ok({"message": f"{SERVER_ID} promoted to primary", "role": state["role"]})
+
+
+@app.route("/isolate", methods=["POST"])
+def isolate():
+    """
+    Called by peer after it promotes itself (when peer was standby).
+    Tells this server to stand down.
+    """
+    data      = request.get_json() or {}
+    new_epoch = int(data.get("new_epoch", state["epoch"]))
+    peer_id   = data.get("from_server", "peer")
+
+    with _lock:
+        state["isolated"] = True
+        state["role"]     = "standby"
+        state["epoch"]    = new_epoch
+
+    audit.append(SERVER_ISOLATED, {
+        "server": SERVER_ID,
+        "epoch":  new_epoch,
+        "reason": f"instructed by {peer_id}",
     })
 
-
-# ── SERVER B SPECIFIC: does NOT handle /isolate ──
-# Server B never gets told to isolate by Server A
-
+    print(f"[{SERVER_ID}] Isolated by {peer_id} — now standby")
+    return _ok({"message": f"{SERVER_ID} isolated", "role": state["role"]})
 
 @app.route("/audit", methods=["GET"])
 def get_audit():
@@ -563,15 +610,34 @@ def audit_verify():
 
 @app.route("/simulate_breach", methods=["POST"])
 def simulate_breach():
+    if state["isolated"]:
+        return _err("Server is isolated", 409)
+        
     data      = request.get_json() or {}
     intensity = int(data.get("intensity", 2))
+    rate_v    = int(data.get("rate", 0))
+    auth_v    = int(data.get("auth", 0))
 
-    for _ in range(intensity * 3):
+    auth_count = max(auth_v // 10, intensity * 3)
+    rate_count = max(rate_v // 5, intensity * 10)
+
+    for _ in range(auth_count):
         detector.record_auth_failure("45.33.32.156")
-    for _ in range(intensity * 10):
+    for _ in range(rate_count):
         detector.record_request("45.33.32.156")
 
     score = detector.compute("45.33.32.156")
+
+    if score >= THETA and not state["ratcheting"] and not state["isolated"]:
+        audit.append(BREACH_SCORE_HIGH, {
+            "score":  score,
+            "ip":     "45.33.32.156",
+            "epoch":  state["epoch"],
+            "server": SERVER_ID,
+        })
+        t = threading.Thread(target=_trigger_ratchet, daemon=True)
+        t.start()
+
     return _ok({
         "message":   "Breach simulation injected",
         "intensity": intensity,

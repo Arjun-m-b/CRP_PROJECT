@@ -508,4 +508,4 @@ if __name__ == "__main__":
     print(f"\n[PASS] HChaCha20 is deterministic")
     print(f"       Subkey: {h1.hex()}")
 
-    print("\n✓ All tests passed. xchacha20.py is ready.")
+    print("\n[PASS] All tests passed. xchacha20.py is ready.")

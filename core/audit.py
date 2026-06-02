@@ -7,6 +7,7 @@ import hashlib
 import json
 import time
 import os
+import threading
 sys.stdout.reconfigure(encoding='utf-8')
 
 
@@ -114,6 +115,7 @@ class AuditLog:
         """
         self.log_path  = log_path
         self._entries  = []     # in-memory list of all entries
+        self._lock     = threading.Lock()
         self._load()            # load existing entries from disk
 
 
@@ -140,16 +142,11 @@ class AuditLog:
     def _save(self):
         """
         Write all entries to disk as JSON.
-
         Uses indent=2 for human-readable output.
-        Writes to a temp file first then renames — this
-        prevents partial writes corrupting the log if the
-        process is killed mid-write.
+        Writes directly to avoid Windows PermissionErrors with os.replace.
         """
-        tmp_path = self.log_path + ".tmp"
-        with open(tmp_path, 'w', encoding='utf-8') as f:
+        with open(self.log_path, 'w', encoding='utf-8') as f:
             json.dump(self._entries, f, indent=2)
-        os.replace(tmp_path, self.log_path)
 
 
     # ── Core operations ───────────────────────
@@ -207,8 +204,9 @@ class AuditLog:
             "this_hash":  this_hash,
         }
 
-        self._entries.append(entry)
-        self._save()
+        with self._lock:
+            self._entries.append(entry)
+            self._save()
 
         return entry
 
@@ -347,9 +345,10 @@ class AuditLog:
         Delete all entries and reset the log.
         Only used in tests — never in production.
         """
-        self._entries = []
-        if os.path.exists(self.log_path):
-            os.remove(self.log_path)
+        with self._lock:
+            self._entries = []
+            if os.path.exists(self.log_path):
+                os.remove(self.log_path)
 
 
     def pretty_print(self, last_n: int = None):

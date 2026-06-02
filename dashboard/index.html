@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HYDRA — Cryptographic Security Monitor</title>
+  <meta name="description" content="HYDRA dual-server reactive encryption real-time monitoring dashboard">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;900&family=JetBrains+Mono:wght@300;400;600&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Animated scanline overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Grid noise background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Main app shell -->
+  <div id="shell">
+
+    <!-- ── Sidebar Navigation ── -->
+    <nav id="sidebar" role="navigation" aria-label="Main navigation">
+
+      <div class="sidebar-brand">
+        <div class="brand-hex">◈</div>
+        <div>
+          <div class="brand-name">HYDRA</div>
+          <div class="brand-sub">Security Monitor v1.0</div>
+        </div>
+      </div>
+
+      <ul class="nav-list" id="nav-list" role="list">
+        <li class="nav-item active" data-page="dashboard" id="nav-dashboard" role="listitem" tabindex="0">
+          <span class="nav-icon">⬡</span>
+          <span class="nav-label">Live Dashboard</span>
+          <span class="nav-ping" id="ping-dashboard"></span>
+        </li>
+        <li class="nav-item" data-page="patients" id="nav-patients" role="listitem" tabindex="0">
+          <span class="nav-icon">◉</span>
+          <span class="nav-label">Patient Records</span>
+        </li>
+        <li class="nav-item" data-page="audit" id="nav-audit" role="listitem" tabindex="0">
+          <span class="nav-icon">◎</span>
+          <span class="nav-label">Audit Chain</span>
+          <span class="nav-badge" id="audit-badge"></span>
+        </li>
+        <li class="nav-item" data-page="breach" id="nav-breach" role="listitem" tabindex="0">
+          <span class="nav-icon">⚡</span>
+          <span class="nav-label">Breach Simulator</span>
+        </li>
+        <li class="nav-item" data-page="crypto" id="nav-crypto" role="listitem" tabindex="0">
+          <span class="nav-icon">⬢</span>
+          <span class="nav-label">Crypto Inspector</span>
+        </li>
+      </ul>
+
+      <!-- Live server status panel -->
+      <div class="server-panel">
+        <div class="server-panel-title">LIVE NODES</div>
+        <div class="server-row" id="srv-a-row">
+          <span class="srv-dot" id="srv-a-dot"></span>
+          <span class="srv-name">Server A</span>
+          <span class="srv-tag" id="srv-a-tag">—</span>
+        </div>
+        <div class="server-row" id="srv-b-row">
+          <span class="srv-dot" id="srv-b-dot"></span>
+          <span class="srv-name">Server B</span>
+          <span class="srv-tag" id="srv-b-tag">—</span>
+        </div>
+        <div class="srv-epoch">
+          <span class="srv-epoch-label">EPOCH</span>
+          <span class="srv-epoch-val" id="sidebar-epoch">—</span>
+        </div>
+      </div>
+
+    </nav>
+
+    <!-- ── Main Content ── -->
+    <div id="main">
+
+      <!-- Top bar -->
+      <header id="topbar">
+        <div class="topbar-left">
+          <button id="sidebar-toggle" class="icon-btn" aria-label="Toggle sidebar">☰</button>
+          <span class="page-title" id="page-title">Live Dashboard</span>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-pill" id="sys-status-pill">
+            <span class="pill-dot"></span>
+            <span id="sys-status-text">CONNECTING…</span>
+          </div>
+          <div class="topbar-stat">
+            <span class="ts-label">EPOCH</span>
+            <span class="ts-val mono" id="topbar-epoch">—</span>
+          </div>
+          <div class="topbar-stat">
+            <span class="ts-label">UTC</span>
+            <span class="ts-val mono" id="clock">--:--:--</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page content -->
+      <div id="content" role="main"></div>
+
+    </div><!-- /#main -->
+  </div><!-- /#shell -->
+
+  <!-- Toast notifications -->
+  <div id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- Record detail modal -->
+  <div id="modal-overlay" class="hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-box">
+      <div id="modal-header">
+        <h2 id="modal-title">Record Detail</h2>
+        <button id="modal-close" class="icon-btn" aria-label="Close modal">✕</button>
+      </div>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Page module scripts (must load before app.js) -->
+  <script src="pages/patients.js"></script>
+  <script src="pages/record.js"></script>
+  <script src="pages/audit.js"></script>
+  <script src="pages/breach_sim.js"></script>
+  <script src="pages/crypto_inspector.js"></script>
+
+  <!-- Core application -->
+  <script src="app.js"></script>
+</body>
+
+</html>

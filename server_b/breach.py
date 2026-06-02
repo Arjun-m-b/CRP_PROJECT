@@ -15,8 +15,8 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 THETA             = 0.55   # breach score threshold
 WINDOW_SECONDS    = 60     # sliding window for rate scoring
-RATE_CEILING      = 20     # requests/min above which score = 1.0
-MAX_AUTH_FAILS    = 5      # failures above which score = 1.0
+RATE_CEILING      = 100    # requests/min above which score = 1.0
+MAX_AUTH_FAILS    = 20     # failures above which score = 1.0
 HEARTBEAT_TIMEOUT = 15     # seconds before missing heartbeat is suspicious
 
 # Trusted IP prefixes for Server A
