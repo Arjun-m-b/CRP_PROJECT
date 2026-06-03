@@ -1,10 +1,11 @@
 # core/xchacha20.py
 # XChaCha20 stream cipher — implemented from scratch
-# Only stdlib used: os (for random nonce generation)
+# Only stdlib used: os, struct, hashlib, hmac, threading
 import os
 import struct
 import hashlib
 import hmac
+import threading
 
 # ─────────────────────────────────────────────
 # CONSTANTS
@@ -379,20 +380,29 @@ def encrypt(key: bytes, plaintext: bytes, nonce: bytes = None) -> tuple[bytes, b
     if nonce is None:
         nonce = generate_nonce()
 
-    # Derive separate MAC key from encryption key
-    # Never use the same key for two different purposes
+    # ── Nonce reuse detection ──────────────────────────────────
+    # Raises ValueError before any data is processed if this
+    # (key, nonce) pair has been used before.
+    _register_nonce(key, nonce)
+
+    # ── Key commitment ─────────────────────────────────────────
+    # Binds the MAC to this exact key so the ciphertext cannot
+    # authenticate under a different key (key-commitment attack).
+    key_commit = _key_commitment(key)
+
+    # Derive separate MAC key (domain-separated from enc key)
     mac_key = hashlib.blake2s(key + b"hydra-mac-key").digest()
 
     # Generate keystream and XOR with plaintext
-    keystream = _xchacha20_keystream(key, nonce, len(plaintext))
-    # In encrypt — replace the ciphertext line
+    keystream  = _xchacha20_keystream(key, nonce, len(plaintext))
     ciphertext = bytearray(len(plaintext))
     for i in range(len(plaintext)):
         ciphertext[i] = plaintext[i] ^ keystream[i]
     ciphertext = bytes(ciphertext)
 
-    # Compute authentication tag over nonce + ciphertext
-    tag = _compute_mac(mac_key, nonce, ciphertext)
+    # Compute authentication tag over: key_commit || nonce || ciphertext
+    # The key_commit prefix ensures the tag is invalid under any other key.
+    tag = _compute_mac(mac_key, key_commit + nonce, ciphertext)
 
     return nonce, ciphertext, tag
 
@@ -419,19 +429,25 @@ def decrypt(key: bytes, nonce: bytes,
     assert len(key) == KEY_SIZE, f"Key must be {KEY_SIZE} bytes"
     assert len(nonce) == NONCE_SIZE, f"Nonce must be {NONCE_SIZE} bytes"
 
+    # ── Key commitment ─────────────────────────────────────────
+    # Must match what encrypt() computed. A different key produces
+    # a different commit → MAC fails → decryption aborted.
+    key_commit = _key_commitment(key)
+
     # Derive same MAC key
     mac_key = hashlib.blake2s(key + b"hydra-mac-key").digest()
 
-    # VERIFY FIRST — never decrypt unauthenticated ciphertext
-    if not _verify_mac(mac_key, nonce, ciphertext, tag):
+    # VERIFY FIRST — never decrypt unauthenticated ciphertext.
+    # MAC covers key_commit || nonce || ciphertext so it is only
+    # valid under the exact key used during encryption.
+    if not _verify_mac(mac_key, key_commit + nonce, ciphertext, tag):
         raise ValueError(
-            "Authentication failed — ciphertext has been tampered with "
-            "or wrong key was used."
+            "Authentication failed — ciphertext has been tampered with, "
+            "wrong key used, or key commitment mismatch."
         )
 
     # Decryption is identical to encryption (XOR is symmetric)
     keystream = _xchacha20_keystream(key, nonce, len(ciphertext))
-    # In decrypt — replace the plaintext line  
     plaintext = bytearray(len(ciphertext))
     for i in range(len(ciphertext)):
         plaintext[i] = ciphertext[i] ^ keystream[i]
@@ -450,6 +466,81 @@ def hchacha20(key: bytes, nonce16: bytes) -> bytes:
     ZKP uses this as a commitment function instead of a hash.
     """
     return _hchacha20(key, nonce16)
+
+
+# ─────────────────────────────────────────────
+# CRYPTANALYSIS HARDENING
+# ─────────────────────────────────────────────
+
+# Nonce reuse detection registry.
+# Maps key_fingerprint (str) → frozenset of nonce hex strings.
+# Scoped per key: when the key ratchets the fingerprint changes,
+# so the old entry is effectively orphaned (and can be pruned).
+_nonce_registry: dict = {}
+_registry_lock  = threading.Lock()
+
+
+def _key_fingerprint(key: bytes) -> str:
+    """
+    Compute an 8-byte hex fingerprint for a key.
+    Used as the dict key in _nonce_registry — short enough to
+    be cheap, long enough to be collision-resistant for this purpose.
+    """
+    return hashlib.blake2s(key + b"HYDRA-nonce-fp", digest_size=8).hexdigest()
+
+
+def _register_nonce(key: bytes, nonce: bytes) -> None:
+    """
+    Register a nonce as used under this key.
+
+    Raises ValueError immediately if the nonce was already seen —
+    reusing (key, nonce) pair means two ciphertexts share the same
+    keystream, and XOR of the ciphertexts leaks plaintext XOR.
+
+    Thread-safe: protected by _registry_lock.
+    """
+    fp       = _key_fingerprint(key)
+    nonce_hx = nonce.hex()
+
+    with _registry_lock:
+        if fp not in _nonce_registry:
+            _nonce_registry[fp] = set()
+        if nonce_hx in _nonce_registry[fp]:
+            raise ValueError(
+                f"NONCE REUSE DETECTED — nonce {nonce_hx[:16]}... already used "
+                "with this key. Aborting: reuse leaks plaintext XOR."
+            )
+        _nonce_registry[fp].add(nonce_hx)
+
+
+def clear_nonce_registry(key: bytes) -> None:
+    """
+    Remove all nonce records for a key.
+
+    Call this after a key ratchet so memory is released.
+    The old fingerprint will never appear again (new key → new fp).
+    """
+    fp = _key_fingerprint(key)
+    with _registry_lock:
+        _nonce_registry.pop(fp, None)
+
+
+def _key_commitment(key: bytes) -> bytes:
+    """
+    Compute a 32-byte key commitment value.
+
+    Key commitment prevents multi-key attacks where an adversary
+    finds two keys K1, K2 such that decrypt(K1, ct) and
+    decrypt(K2, ct) both produce valid-looking plaintexts.
+
+    By including commit = BLAKE2s(key || b"HYDRA-key-commit")
+    in the MAC input, the tag is cryptographically bound to one
+    specific key. Any other key produces a different commit value
+    and therefore a different expected MAC → decryption fails.
+
+    Returns 32-byte commitment.
+    """
+    return hashlib.blake2s(key + b"HYDRA-key-commit").digest()
 
 
 # ─────────────────────────────────────────────

@@ -128,24 +128,43 @@ def _fetch_all_records(server_url: str) -> list:
 
 def _push_record(server_url: str, record_id: str,
                   nonce: bytes, ciphertext: bytes,
-                  mac_tag: bytes) -> bool:
+                  mac_tag: bytes) -> str:
     """
     Push a re-encrypted record to a server via POST /store.
 
-    Returns True on success, False on failure.
+    Returns:
+        "ok"       — successfully stored
+        "isolated" — server returned 503 (intentionally isolated, not an error)
+        "error"    — unexpected failure
     """
     try:
-        _post(f"{server_url}/store", {
-            "record_id":  record_id,
-            "nonce":      nonce.hex(),
-            "ciphertext": ciphertext.hex(),
-            "mac_tag":    mac_tag.hex(),
-        })
-        return True
+        import requests
+        resp = requests.post(
+            f"{server_url}/store",
+            json={
+                "record_id":  record_id,
+                "nonce":      nonce.hex(),
+                "ciphertext": ciphertext.hex(),
+                "mac_tag":    mac_tag.hex(),
+            },
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            return "ok"
+        elif resp.status_code == 503:
+            # Server is intentionally isolated — it will derive the same
+            # K_n+1 independently via /promote and pull records via /internal/sync.
+            print(f"[reencrypt] {server_url} is isolated (503) — skipping push "
+                  f"for {record_id} (peer will sync on promotion)")
+            return "isolated"
+        else:
+            print(f"[reencrypt] WARNING: Push to {server_url} returned "
+                  f"{resp.status_code} for {record_id}")
+            return "error"
     except Exception as e:
         print(f"[reencrypt] WARNING: Push to {server_url} failed "
               f"for {record_id}: {e}")
-        return False
+        return "error"
 
 
 # ─────────────────────────────────────────────
@@ -323,33 +342,41 @@ def run_reencryption(
 
     # ── Step 3: Push re-encrypted records to Server A ──
     print(f"\n[reencrypt] Step 3: Pushing to Server A ({SERVER_A_URL})...")
-    pushed_a = 0
+    pushed_a   = 0
+    isolated_a = 0
     for rec in reencrypted:
-        ok = _push_record(
+        result = _push_record(
             SERVER_A_URL,
             rec["record_id"],
             rec["nonce"],
             rec["ciphertext"],
             rec["mac_tag"],
         )
-        if ok:
+        if result == "ok":
             pushed_a += 1
-    print(f"[reencrypt] Server A: {pushed_a}/{len(reencrypted)} pushed")
+        elif result == "isolated":
+            isolated_a += 1
+    print(f"[reencrypt] Server A: {pushed_a}/{len(reencrypted)} pushed"
+          + (f" ({isolated_a} skipped — isolated)" if isolated_a else ""))
 
     # ── Step 4: Push re-encrypted records to Server B ──
     print(f"\n[reencrypt] Step 4: Pushing to Server B ({SERVER_B_URL})...")
-    pushed_b = 0
+    pushed_b   = 0
+    isolated_b = 0
     for rec in reencrypted:
-        ok = _push_record(
+        result = _push_record(
             SERVER_B_URL,
             rec["record_id"],
             rec["nonce"],
             rec["ciphertext"],
             rec["mac_tag"],
         )
-        if ok:
+        if result == "ok":
             pushed_b += 1
-    print(f"[reencrypt] Server B: {pushed_b}/{len(reencrypted)} pushed")
+        elif result == "isolated":
+            isolated_b += 1
+    print(f"[reencrypt] Server B: {pushed_b}/{len(reencrypted)} pushed"
+          + (f" ({isolated_b} skipped — isolated)" if isolated_b else ""))
 
     # ── Step 5: Zero old key ──
     print(f"\n[reencrypt] Step 5: Zeroing old key K_{old_epoch}...")
@@ -365,7 +392,12 @@ def run_reencryption(
         print(f"[reencrypt] WARNING: Servers may be out of sync")
 
     duration_ms = round((time.time() - start_time) * 1000, 2)
-    success     = len(failed) == 0 and pushed_a > 0
+
+    # Success if no crypto failures AND at least one live server received records.
+    # Isolated-server skips (503) are NOT failures — the peer will derive the
+    # same K_n+1 independently via /promote and sync records via /internal/sync.
+    active_pushes = pushed_a + pushed_b
+    success       = len(failed) == 0 and active_pushes > 0
 
     result = {
         "success":     success,

@@ -176,31 +176,37 @@ def _zero_bytes(b: bytearray) -> None:
 # HYDRA-SPECIFIC: RATCHET
 # ─────────────────────────────────────────────
 
-def ratchet(current_key: bytes, epoch: int, server_id: str) -> bytes:
+def ratchet(current_key: bytes, epoch: int, server_id: str = "shared") -> bytes:
     """
     Derive the next encryption key from the current one.
 
     This is the core of HYDRA's breach response. When the
     breach detector fires, this function:
         1. Derives a new key cryptographically bound to
-           the current key, epoch number, and server ID
+           the current key and epoch number
         2. The old key is unreachable from the new key
            (HKDF is a one-way function)
 
-    Salt construction:
-        salt = epoch_bytes + server_id_bytes
-        Makes every ratchet step unique even if somehow
-        the same key appeared again.
+    CRITICAL — Salt construction (SHARED, not per-server):
+        salt = b"HYDRA" + epoch_bytes
 
-    Info construction:
+        Both servers MUST derive the same K_n+1 from the
+        same K_n so that re-encrypted records produced by
+        the ratcheting server are readable by the promoted
+        peer. Including server_id in the salt causes key
+        divergence between servers — this is the root cause
+        of the cross-server decryption failure.
+
+    Info construction (for domain separation / logging only):
         info = b"HYDRA-ratchet-v1-" + epoch_bytes
         Domain-separates ratchet output from other
         HKDF uses (subkey derivation, etc.)
 
     Args:
         current_key: 32-byte current encryption key (K_n)
-        epoch:       current epoch number (integer)
-        server_id:   "server_a" or "server_b"
+        epoch:       new epoch number (integer, K_n+1 epoch)
+        server_id:   deprecated — kept for call-site compat,
+                     no longer affects key derivation.
 
     Returns:
         32-byte next encryption key (K_n+1)
@@ -212,11 +218,16 @@ def ratchet(current_key: bytes, epoch: int, server_id: str) -> bytes:
     assert len(current_key) == 32, "Key must be 32 bytes"
     assert epoch >= 0, "Epoch must be non-negative"
 
-    epoch_bytes     = epoch.to_bytes(4, byteorder='big')
-    server_bytes    = server_id.encode('utf-8')
+    epoch_bytes = epoch.to_bytes(4, byteorder='big')
 
-    salt  = epoch_bytes + server_bytes
-    info  = b"HYDRA-ratchet-v1-" + epoch_bytes
+    # Salt is SHARED — does NOT include server_id so that
+    # both servers derive the identical K_n+1 from K_n.
+    salt = b"HYDRA" + epoch_bytes
+
+    # Info is purely a domain separator; it does not affect
+    # the key value in a way that breaks cross-server compat
+    # because both servers use the same info string.
+    info = b"HYDRA-ratchet-v1-" + epoch_bytes
 
     next_key = hkdf(
         ikm    = current_key,
@@ -346,13 +357,14 @@ if __name__ == "__main__":
     assert key_e1 == key_e1_again, "FAIL: ratchet not deterministic"
     print(f"[PASS] Ratchet is deterministic\n")
 
-    # Test 6: different server_id gives different key
+    # Test 6: server_id no longer affects key — both servers derive SAME key
     key_a = ratchet(base_key, epoch=1, server_id="server_a")
     key_b = ratchet(base_key, epoch=1, server_id="server_b")
-    assert key_a != key_b, "FAIL: server_id does not affect output"
-    print(f"[PASS] Server ID produces different ratchet keys")
+    assert key_a == key_b, "FAIL: keys differ — server_id must NOT affect salt"
+    print(f"[PASS] Both servers derive identical ratchet key (cross-server compat)")
     print(f"       Server A key: {key_a.hex()[:32]}...")
-    print(f"       Server B key: {key_b.hex()[:32]}...\n")
+    print(f"       Server B key: {key_b.hex()[:32]}...")
+    print(f"       Keys match:   {key_a == key_b}\n")
 
     # Test 7: zero_key wipes the value
     test_key      = bytearray(b'\xFF' * 32)

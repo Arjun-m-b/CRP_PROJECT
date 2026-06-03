@@ -16,7 +16,7 @@ from reencrypt import run_reencryption
 from flask import Flask, request, jsonify
 import requests as http
 
-from core.xchacha20 import encrypt, decrypt, generate_key, generate_nonce
+from core.xchacha20 import encrypt, decrypt, generate_key, generate_nonce, clear_nonce_registry
 from core.shamir    import reconstruct_key, deserialize_share, encode_share_for_server
 from core.hkdf      import ratchet, zero_key, derive_subkeys
 from core.audit     import (
@@ -219,6 +219,8 @@ def _trigger_ratchet():
     # Derive new key — keep a copy of old_key for re-encryption
     old_key_copy = bytes(old_key)  # snapshot before zeroing
     new_key = ratchet(old_key, epoch=new_epoch, server_id=SERVER_ID)
+    # Clear nonce registry for the old key — it's being retired
+    clear_nonce_registry(old_key)
     zero_key(old_key)
     print(f"[{SERVER_ID}] K_{old_epoch} erased")
 
@@ -292,6 +294,54 @@ def _trigger_ratchet():
         })
 
     detector.reset()
+
+
+# ─────────────────────────────────────────────
+# PEER RECORD SYNC (post-promotion)
+# ─────────────────────────────────────────────
+
+def _sync_records_from_peer(epoch: int):
+    """
+    Pull re-encrypted records from the isolated peer after promotion.
+
+    After a failover the peer holds epoch-N+1 records that were
+    never pushed to us (our /store was returning 503 while we were
+    isolated). Pull them now via /internal/sync which bypasses the
+    peer's isolation check.
+    """
+    print(f"[{SERVER_ID}] Syncing records at epoch {epoch} from peer...")
+    try:
+        resp = http.get(
+            f"{PEER_URL}/internal/sync",
+            params={"epoch": epoch},
+            timeout=10,
+        )
+        if resp.status_code != 200:
+            print(f"[{SERVER_ID}] Peer sync returned {resp.status_code} — skipping")
+            return
+
+        records = resp.json().get("records", [])
+        print(f"[{SERVER_ID}] Pulling {len(records)} records from peer at epoch {epoch}")
+
+        synced = 0
+        for rec in records:
+            try:
+                ok = store.save(
+                    rec["record_id"],
+                    epoch=rec["epoch"],
+                    nonce=bytes.fromhex(rec["nonce"]),
+                    ciphertext=bytes.fromhex(rec["ciphertext"]),
+                    mac_tag=bytes.fromhex(rec["mac_tag"]),
+                )
+                if ok:
+                    synced += 1
+            except Exception as exc:
+                print(f"[{SERVER_ID}] Sync record error: {exc}")
+
+        print(f"[{SERVER_ID}] Sync complete — {synced}/{len(records)} records")
+
+    except Exception as e:
+        print(f"[{SERVER_ID}] Peer sync failed: {e}")
 
 
 # ─────────────────────────────────────────────
@@ -546,16 +596,42 @@ def trigger_ratchet_endpoint():
 def promote():
     """
     Called by peer after it ratchets (when peer was primary).
-    Tells this server to become primary.
+    Tells this server to become primary and derive K_n+1 from K_n.
+
+    Key derivation:
+        Both servers start with the same K_n (from key ceremony).
+        ratchet() now uses a shared salt (no server_id) so:
+            ratchet(K_n, epoch=n+1) ≡ same result on both servers.
+        This server independently computes K_n+1 without the key
+        ever transiting the network.
     """
     data      = request.get_json() or {}
     new_epoch = int(data.get("new_epoch", state["epoch"]))
     peer_id   = data.get("from_server", "peer")
 
     with _lock:
-        state["isolated"] = False
-        state["role"]     = "primary"
-        state["epoch"]    = new_epoch
+        # Independently derive K_n+1 from our current K_n.
+        # The ratcheting peer derived the same key because ratchet()
+        # uses a shared (server-id-independent) salt.
+        if state["current_key"] is not None:
+            old_key_snap         = bytes(state["current_key"])
+            state["current_key"] = ratchet(old_key_snap, epoch=new_epoch)
+
+        # Clear any stale flags left over from the isolation period
+        state["isolated"]   = False
+        state["ratcheting"] = False
+        state["role"]       = "primary"
+        state["epoch"]      = new_epoch
+
+    # Clear residual breach signals so we can ratchet again if needed
+    detector.reset()
+
+    # Pull epoch N+1 records from the isolated peer in the background
+    threading.Thread(
+        target=_sync_records_from_peer,
+        args=[new_epoch],
+        daemon=True,
+    ).start()
 
     audit.append(FAILOVER_COMPLETE, {
         "new_primary": SERVER_ID,
@@ -563,7 +639,7 @@ def promote():
         "reason":      f"instructed by {peer_id}",
     })
 
-    print(f"[{SERVER_ID}] Promoted by {peer_id} — now primary")
+    print(f"[{SERVER_ID}] Promoted by {peer_id} — primary at epoch {new_epoch}")
     return _ok({"message": "Server A promoted to primary", "role": state["role"]})
 
 
@@ -571,16 +647,25 @@ def promote():
 def isolate():
     """
     Called by peer after it promotes itself (when peer was standby).
-    Tells this server to stand down.
+    Tells this server to stand down and clear breach detector state.
+
+    IMPORTANT: detector.reset() is called here so residual breach
+    signals accumulated during the standby period don't prevent
+    this server from ratcheting again when it is next promoted.
     """
     data      = request.get_json() or {}
     new_epoch = int(data.get("new_epoch", state["epoch"]))
     peer_id   = data.get("from_server", "peer")
 
     with _lock:
-        state["isolated"] = True
-        state["role"]     = "standby"
-        state["epoch"]    = new_epoch
+        state["isolated"]   = True
+        state["ratcheting"] = False
+        state["role"]       = "standby"
+        state["epoch"]      = new_epoch
+
+    # CRITICAL: reset detector so residual signals from the previous
+    # breach cycle don’t permanently block ratcheting on next promotion.
+    detector.reset()
 
     audit.append(SERVER_ISOLATED, {
         "server": SERVER_ID,
@@ -588,7 +673,7 @@ def isolate():
         "reason": f"instructed by {peer_id}",
     })
 
-    print(f"[{SERVER_ID}] Isolated by {peer_id} — now standby")
+    print(f"[{SERVER_ID}] Isolated by {peer_id} — standby at epoch {new_epoch}")
     return _ok({"message": "Server A isolated", "role": state["role"]})
 
 
@@ -652,13 +737,111 @@ def simulate_breach():
 
 @app.route("/reset", methods=["POST"])
 def reset_server():
+    """
+    Full system reset — generates a fresh master key and re-initialises
+    both servers. Server A drives the ceremony: it creates the new key,
+    sets itself back to primary/epoch-1, then POSTs the key to Server B
+    via /init so the entire system is ready for another breach cycle.
+    """
+    new_key   = generate_key()
+    new_epoch = 1
+
     with _lock:
-        state["isolated"]   = False
-        state["role"]       = "primary"    # A resets to primary
-        state["ratcheting"] = False
+        state["current_key"] = new_key
+        state["epoch"]       = new_epoch
+        state["isolated"]    = False
+        state["role"]        = "primary"
+        state["ratcheting"]  = False
 
     detector.reset()
-    return _ok({"message": "Server A reset complete"})
+
+    audit.append(KEY_CEREMONY, {
+        "server": SERVER_ID,
+        "epoch":  new_epoch,
+        "note":   "full reset — new key generated",
+    })
+
+    print(f"[{SERVER_ID}] Full reset — epoch {new_epoch}, pushing new key to peer...")
+
+    # Push fresh key to Server B. Pass dummy share values — the
+    # Shamir ceremony is only needed for the initial startup.
+    _notify_peer("/init", {
+        "key_hex": new_key.hex(),
+        "share_x": 1,
+        "share_y": "00" * 32,
+        "epoch":   new_epoch,
+    })
+
+    return _ok({
+        "message": "System reset complete — Server A is primary",
+        "epoch":   new_epoch,
+    })
+
+
+@app.route("/rejoin", methods=["POST"])
+def rejoin():
+    """
+    Allow this isolated server to rejoin with a new key from its peer.
+    Used for manual recovery when a server needs to sync without a full
+    reset — peer POSTs here with the current epoch’s key.
+    """
+    data      = request.get_json() or {}
+    key_hex   = data.get("key_hex", "")
+    new_epoch = int(data.get("epoch", state["epoch"]))
+
+    if not key_hex:
+        return _err("Missing key_hex")
+    try:
+        new_key = bytes.fromhex(key_hex)
+    except ValueError:
+        return _err("Invalid key_hex")
+    if len(new_key) != 32:
+        return _err("Key must be 32 bytes")
+
+    with _lock:
+        state["current_key"] = new_key
+        state["epoch"]       = new_epoch
+        state["isolated"]    = False
+        state["ratcheting"]  = False
+
+    detector.reset()
+    print(f"[{SERVER_ID}] Rejoined — epoch {new_epoch}")
+    return _ok({"message": f"{SERVER_ID} rejoined", "epoch": new_epoch, "role": state["role"]})
+
+
+@app.route("/internal/sync", methods=["GET"])
+def internal_sync():
+    """
+    Peer-to-peer record synchronisation — bypasses isolation check.
+
+    When this server is isolated it normally returns 503 on /fetch.
+    However the newly-promoted peer needs to pull epoch-N+1 records
+    that were re-encrypted here but never pushed (because the peer’s
+    /store was returning 503). This endpoint serves those records
+    without checking isolation status.
+
+    Query param:
+        epoch (int, optional) — filter by epoch; default = current
+    """
+    epoch = request.args.get("epoch", type=int, default=state["epoch"])
+
+    try:
+        recs = store.get_all_by_epoch(epoch)
+    except Exception:
+        recs = store.get_all()  # fallback if get_all_by_epoch unavailable
+
+    result = [
+        {
+            "record_id":  r["id"],
+            "epoch":      r["epoch"],
+            "nonce":      r["nonce"].hex(),
+            "ciphertext": r["ciphertext"].hex(),
+            "mac_tag":    r["mac_tag"].hex(),
+        }
+        for r in recs
+        if r["epoch"] == epoch
+    ]
+    return _ok({"records": result, "total": len(result), "epoch": epoch})
 
 
 # ─────────────────────────────────────────────

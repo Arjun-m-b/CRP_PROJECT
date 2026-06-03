@@ -98,28 +98,58 @@ window.HYDRA_PAGES.breach = {
   },
 
   fireSimulation: async () => {
-    const rate = parseInt(document.getElementById('sim-rate').value, 10);
-    const geo = parseInt(document.getElementById('sim-geo').value, 10);
-    const auth = parseInt(document.getElementById('sim-auth').value, 10);
+    const rate   = parseInt(document.getElementById('sim-rate').value,   10);
+    const geo    = parseInt(document.getElementById('sim-geo').value,    10);
+    const auth   = parseInt(document.getElementById('sim-auth').value,   10);
     const timing = parseInt(document.getElementById('sim-timing').value, 10);
 
-    // Compute an overall intensity from the sliders
     const intensity = Math.max(1, Math.ceil((rate + geo + auth + timing) / 50));
 
     const btn = document.getElementById('btn-fire');
     btn.disabled = true;
-    btn.innerHTML = '<span>INJECTING...</span> <span class="loading-spinner"></span>';
+    btn.innerHTML = '<span>DETECTING PRIMARY...</span> <span class="loading-spinner"></span>';
+
+    // ── Auto-detect primary server ────────────────────────────────
+    // Query both servers and target whichever is currently primary.
+    // This allows re-injection after failover without manual switching.
+    let targetUrl  = HYDRA.CFG.SERVER_A;
+    let targetName = 'Server A';
+    try {
+      const [sa, sb] = await Promise.allSettled([
+        fetch(HYDRA.CFG.SERVER_A + '/status').then(r => r.json()),
+        fetch(HYDRA.CFG.SERVER_B + '/status').then(r => r.json()),
+      ]);
+      const aRole = sa.status === 'fulfilled' ? sa.value?.role : null;
+      const bRole = sb.status === 'fulfilled' ? sb.value?.role : null;
+
+      if (aRole === 'primary' && !sa.value?.isolated) {
+        targetUrl  = HYDRA.CFG.SERVER_A;
+        targetName = 'Server A';
+      } else if (bRole === 'primary' && !sb.value?.isolated) {
+        targetUrl  = HYDRA.CFG.SERVER_B;
+        targetName = 'Server B';
+      } else if (aRole === 'primary') {
+        targetUrl  = HYDRA.CFG.SERVER_A;
+        targetName = 'Server A';
+      }
+      // else: default stays Server A
+    } catch (_) { /* fallback to Server A */ }
+
+    btn.innerHTML = `<span>INJECTING → ${targetName}...</span> <span class="loading-spinner"></span>`;
 
     try {
-      const resp = await HYDRA.apiPost('/simulate_breach', {
-        intensity, rate, geo, auth, timing
-      });
+      const resp = await fetch(targetUrl + '/simulate_breach', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ intensity, rate, geo, auth, timing }),
+      }).then(r => r.json());
+
       if (resp?.status === 'ok') {
         const scoreStr = resp.score !== undefined ? ` (score: ${resp.score.toFixed(3)})` : '';
         if (resp.breach) {
-          HYDRA.toast('BREACH THRESHOLD CROSSED! Ratchet firing...' + scoreStr, 'error');
+          HYDRA.toast(`BREACH on ${targetName}! Ratchet firing…${scoreStr}`, 'error');
         } else {
-          HYDRA.toast('Threat signals injected.' + scoreStr, 'warn');
+          HYDRA.toast(`Threat signals injected → ${targetName}.${scoreStr}`, 'warn');
         }
       } else {
         throw new Error(resp?.message || 'Unknown error');
@@ -137,17 +167,30 @@ window.HYDRA_PAGES.breach = {
   },
 
   resetSystem: async () => {
-    if (!confirm('Are you sure you want to reset the entire system? This will delete all records and restart the key ceremony.')) return;
+    if (!confirm('Reset the entire system? This generates a new encryption key and restarts the key ceremony on both servers.')) return;
 
-    HYDRA.toast('Sending reset commands...', 'warn');
+    HYDRA.toast('Initiating full system reset…', 'warn');
     try {
-      // Must hit both explicitly
-      await fetch(HYDRA.CFG.SERVER_A + '/reset', { method: 'POST' }).catch(() => { });
-      await fetch(HYDRA.CFG.SERVER_B + '/reset', { method: 'POST' }).catch(() => { });
-      HYDRA.toast('System reset. Please wait for reboot...', 'success');
-      setTimeout(() => HYDRA.navigateTo('dashboard'), 2000);
+      // Server A’s /reset drives the full ceremony:
+      //   1. Generates a fresh 32-byte master key
+      //   2. Re-initialises itself as primary at epoch 1
+      //   3. POSTs the new key to Server B via /init
+      // Calling Server B’s /reset separately is NOT needed —
+      // and would wipe the key A just pushed.
+      const resp = await fetch(HYDRA.CFG.SERVER_A + '/reset', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      const data = await resp.json();
+
+      if (resp.ok && data.status === 'ok') {
+        HYDRA.toast(`System reset — new epoch ${data.epoch ?? 1}. Both servers ready.`, 'success');
+        setTimeout(() => HYDRA.navigateTo('dashboard'), 2000);
+      } else {
+        HYDRA.toast('Reset returned unexpected response: ' + (data.message ?? resp.status), 'error');
+      }
     } catch (e) {
-      HYDRA.toast('Reset error: ' + e.message, 'error');
+      HYDRA.toast('Reset failed: ' + e.message, 'error');
     }
   },
 

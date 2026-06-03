@@ -2,7 +2,7 @@
   {
     "seq": 1,
     "event": "RE_ENCRYPT_START",
-    "timestamp": 1780421712.5588675,
+    "timestamp": 1780493308.3439133,
     "data": {
       "source": "server_a",
       "count": 20,
@@ -10,12 +10,12 @@
       "new_epoch": 2
     },
     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
-    "this_hash": "01cee25749fec435d7c875f2ba438017cf7db02450eea99d06da5a8087432a5f"
+    "this_hash": "bc5df6be9569336164c9feb4073535980b0e82e946c60c44b911e520d4984b01"
   },
   {
     "seq": 2,
     "event": "RE_ENCRYPT_COMPLETE",
-    "timestamp": 1780421714.817019,
+    "timestamp": 1780493310.8401659,
     "data": {
       "old_epoch": 1,
       "new_epoch": 2,
@@ -26,7 +26,7 @@
       "pushed_b": 20,
       "in_sync": true
     },
-    "prev_hash": "01cee25749fec435d7c875f2ba438017cf7db02450eea99d06da5a8087432a5f",
-    "this_hash": "43db8baeba4c61e538beb6279aaa3d6581d642b681ba60dd938f0827b060cb6b"
+    "prev_hash": "bc5df6be9569336164c9feb4073535980b0e82e946c60c44b911e520d4984b01",
+    "this_hash": "1ba99d061d3a225b43b3184ec90228400c180f225cb968bf1084d15773d55a0d"
   }
 ]
