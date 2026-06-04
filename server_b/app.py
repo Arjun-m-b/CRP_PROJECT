@@ -25,7 +25,7 @@ from core.audit     import (
     FAILOVER_INITIATED, FAILOVER_COMPLETE,
     RE_ENCRYPT_START, RE_ENCRYPT_COMPLETE,
     ZK_PROOF_PASSED, ZK_PROOF_FAILED,
-    RECORD_STORED, RECORD_FETCHED,
+    RECORD_STORED, RECORD_FETCHED, RECORD_DELETED,
     BREACH_SCORE_HIGH, SERVER_ISOLATED
 )
 from server_b.breach import BreachDetector, THETA
@@ -554,6 +554,39 @@ def store_payload():
 
     return _ok({"record_id": record_id, "epoch": state["epoch"]})
 
+
+
+@app.route("/delete_record", methods=["POST"])
+def delete_record():
+    ip = _get_request_ip()
+    _check_breach(ip)
+
+    if state["isolated"]:
+        return _err("Server B is isolated", 503)
+
+    data = request.get_json()
+    if not data or "record_id" not in data:
+        return _err("Missing record_id")
+
+    record_id = data["record_id"]
+    if not store.delete(record_id):
+        return _err(f"Record '{record_id}' not found", 404)
+
+    audit.append(RECORD_DELETED, {
+        "record_id": record_id,
+        "epoch":     state["epoch"],
+        "server":    SERVER_ID,
+    })
+
+    # Mirror to Server A if primary
+    if state["role"] == "primary":
+        threading.Thread(
+            target=_notify_peer,
+            args=["/delete_record", {"record_id": record_id}],
+            daemon=True
+        ).start()
+
+    return _ok({"message": f"Record {record_id} deleted"})
 
 
 @app.route("/fetch/<record_id>", methods=["GET"])

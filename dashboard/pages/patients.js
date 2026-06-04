@@ -12,6 +12,7 @@ window.HYDRA_PAGES.patients = {
         <div class="card-title flex justify-between items-center">
           <span>◉ ENCRYPTED PATIENT RECORDS</span>
           <div>
+            <button class="btn btn-primary btn-sm" onclick="HYDRA_PAGES.patients.addRecord()">➕ Add Record</button>
             <button class="btn btn-primary btn-sm" onclick="HYDRA_PAGES.patients.refresh()">↻ Refresh</button>
             <button class="btn btn-ghost btn-sm" onclick="HYDRA.navigateTo('crypto')">Key Explorer →</button>
           </div>
@@ -42,6 +43,38 @@ window.HYDRA_PAGES.patients = {
 
     HYDRA_PAGES.patients.refresh();
     HYDRA.pollStart('patients', HYDRA_PAGES.patients.refresh, 5000);
+  },
+
+  addRecord: async () => {
+    const text = prompt("Enter patient record JSON or text:");
+    if (!text) return;
+    try {
+      const b64 = btoa(text);
+      const res = await HYDRA.apiPost('/store_payload', { payload_b64: b64 });
+      if (res.status === 'ok') {
+        alert(`Record added successfully! ID: ${res.record_id}`);
+        HYDRA_PAGES.patients.refresh();
+      } else {
+        alert(`Error adding record: ${res.error}`);
+      }
+    } catch (e) {
+      alert(`Failed to add record: ${e.message}`);
+    }
+  },
+
+  deleteRecord: async (recordId) => {
+    if (!confirm(`Are you sure you want to delete ${recordId}?`)) return;
+    try {
+      const res = await HYDRA.apiPost('/delete_record', { record_id: recordId });
+      if (res.status === 'ok') {
+        alert(`Deleted ${recordId}`);
+        HYDRA_PAGES.patients.refresh();
+      } else {
+        alert(`Error deleting record: ${res.error}`);
+      }
+    } catch (e) {
+      alert(`Failed to delete record: ${e.message}`);
+    }
   },
 
   refresh: async () => {
@@ -92,6 +125,7 @@ window.HYDRA_PAGES.patients = {
         <td class="mono text-dim" style="font-size:10px;">${HYDRA.formatTime(r.created_at * 1000)}</td>
         <td>
           <button class="btn btn-ghost btn-sm" onclick="HYDRA_PAGES.record.openModal('${r.id}')">Inspect</button>
+          <button class="btn btn-ghost btn-sm text-red" style="color: #ff4444;" onclick="HYDRA_PAGES.patients.deleteRecord('${r.id}')">Delete</button>
         </td>
       </tr>
     `).join('');
