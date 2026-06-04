@@ -1,154 +1,2018 @@
 [
   {
-    "beat": 1,
-    "timestamp": 1780589546.8828611,
+    "beat": 229,
+    "timestamp": 1780591585.0380144,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2551,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0017,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 230,
+    "timestamp": 1780591590.1161375,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0153,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0017,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 231,
+    "timestamp": 1780591595.239968,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0088,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0001,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 232,
+    "timestamp": 1780591600.2842178,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0059,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0003,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 233,
+    "timestamp": 1780591605.4082086,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0029,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 234,
+    "timestamp": 1780591610.5305815,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0001,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0001,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 235,
+    "timestamp": 1780591615.658201,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 236,
+    "timestamp": 1780591620.7161224,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 237,
+    "timestamp": 1780591625.798442,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 238,
+    "timestamp": 1780591630.8777719,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 239,
+    "timestamp": 1780591635.9683912,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 240,
+    "timestamp": 1780591641.0924444,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 241,
+    "timestamp": 1780591646.1442716,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 242,
+    "timestamp": 1780591651.2547717,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 243,
+    "timestamp": 1780591656.3088694,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 244,
+    "timestamp": 1780591661.3759887,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 245,
+    "timestamp": 1780591666.4466338,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 246,
+    "timestamp": 1780591671.511043,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 247,
+    "timestamp": 1780591676.5815222,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 248,
+    "timestamp": 1780591681.6813433,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 249,
+    "timestamp": 1780591690.7943547,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 250,
+    "timestamp": 1780591699.8878045,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 251,
+    "timestamp": 1780591708.9945452,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 252,
+    "timestamp": 1780591718.4814677,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 253,
+    "timestamp": 1780591727.5949688,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 254,
+    "timestamp": 1780591736.6966248,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 255,
+    "timestamp": 1780591745.7939017,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 256,
+    "timestamp": 1780591754.8841114,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 257,
+    "timestamp": 1780591763.987339,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 0,
+      "score": 0.0,
+      "record_count": 0
+    },
+    "anomalies": [
+      "WARNING: Server A is unreachable"
+    ]
+  },
+  {
+    "beat": 258,
+    "timestamp": 1780591769.0770285,
     "server_a": {
       "alive": true,
       "role": "primary",
       "epoch": 1,
-      "score": 0.0754,
+      "score": 0.0844,
       "record_count": 20
     },
     "server_b": {
       "alive": true,
       "role": "standby",
       "epoch": 1,
-      "score": 0.1624,
+      "score": 0.0707,
       "record_count": 20
     },
     "anomalies": []
   },
   {
-    "beat": 2,
-    "timestamp": 1780589551.9668648,
+    "beat": 259,
+    "timestamp": 1780591774.1309237,
     "server_a": {
       "alive": true,
       "role": "primary",
       "epoch": 1,
-      "score": 0.0746,
+      "score": 0.0851,
       "record_count": 20
     },
     "server_b": {
       "alive": true,
       "role": "standby",
       "epoch": 1,
-      "score": 0.1445,
+      "score": 0.0709,
       "record_count": 20
     },
     "anomalies": []
   },
   {
-    "beat": 3,
-    "timestamp": 1780589557.1143603,
+    "beat": 260,
+    "timestamp": 1780591779.2589865,
     "server_a": {
       "alive": true,
       "role": "primary",
       "epoch": 1,
-      "score": 0.0746,
+      "score": 0.0851,
       "record_count": 20
     },
     "server_b": {
       "alive": true,
       "role": "standby",
       "epoch": 1,
-      "score": 0.1445,
+      "score": 0.0709,
       "record_count": 20
     },
     "anomalies": []
   },
   {
-    "beat": 4,
-    "timestamp": 1780589562.275981,
+    "beat": 261,
+    "timestamp": 1780591784.40737,
     "server_a": {
       "alive": true,
       "role": "primary",
       "epoch": 1,
-      "score": 0.0746,
+      "score": 0.0851,
       "record_count": 20
     },
     "server_b": {
       "alive": true,
       "role": "standby",
       "epoch": 1,
-      "score": 0.1445,
+      "score": 0.0709,
       "record_count": 20
     },
     "anomalies": []
   },
   {
-    "beat": 5,
-    "timestamp": 1780589567.3555963,
+    "beat": 262,
+    "timestamp": 1780591789.4772196,
     "server_a": {
       "alive": true,
       "role": "primary",
       "epoch": 1,
-      "score": 0.2824,
+      "score": 0.0851,
       "record_count": 20
     },
     "server_b": {
       "alive": true,
       "role": "standby",
       "epoch": 1,
-      "score": 0.1563,
+      "score": 0.0709,
       "record_count": 20
     },
     "anomalies": []
   },
   {
-    "beat": 6,
-    "timestamp": 1780589572.4237154,
+    "beat": 263,
+    "timestamp": 1780591794.6054375,
     "server_a": {
       "alive": true,
       "role": "primary",
       "epoch": 1,
+      "score": 0.255,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 1,
+      "score": 0.255,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 264,
+    "timestamp": 1780591799.6902342,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 1,
+      "score": 0.2611,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 1,
+      "score": 0.255,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 265,
+    "timestamp": 1780591804.8499157,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 1,
+      "score": 0.4213,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 1,
+      "score": 0.3037,
+      "record_count": 21
+    },
+    "anomalies": [
+      "INFO: Server A ratchet in progress \u2014 epoch 1"
+    ]
+  },
+  {
+    "beat": 266,
+    "timestamp": 1780591809.9687877,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0061,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 267,
+    "timestamp": 1780591815.0761912,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0091,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.001,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 268,
+    "timestamp": 1780591820.1458688,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0175,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0045,
+      "record_count": 22
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=22"
+    ]
+  },
+  {
+    "beat": 269,
+    "timestamp": 1780591825.2744436,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2188,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0401,
+      "record_count": 22
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=22"
+    ]
+  },
+  {
+    "beat": 270,
+    "timestamp": 1780591830.3441932,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0383,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0085,
+      "record_count": 22
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=22"
+    ]
+  },
+  {
+    "beat": 271,
+    "timestamp": 1780591835.42517,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.1205,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0402,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 272,
+    "timestamp": 1780591840.5399487,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.1678,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.015,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 273,
+    "timestamp": 1780591845.6362345,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.1421,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0274,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 274,
+    "timestamp": 1780591850.722523,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2013,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0371,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 275,
+    "timestamp": 1780591855.7796376,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.268,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0507,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 276,
+    "timestamp": 1780591860.8854141,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
       "score": 0.286,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0518,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 277,
+    "timestamp": 1780591865.966089,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2971,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0535,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 278,
+    "timestamp": 1780591871.036742,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2381,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0538,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 279,
+    "timestamp": 1780591876.1432564,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2487,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.043,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 280,
+    "timestamp": 1780591881.1999135,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2836,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0377,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 281,
+    "timestamp": 1780591886.2944736,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.1371,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0287,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 282,
+    "timestamp": 1780591891.424932,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0942,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0178,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 283,
+    "timestamp": 1780591896.521999,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.1197,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0153,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 284,
+    "timestamp": 1780591901.6477146,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2688,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0144,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 285,
+    "timestamp": 1780591906.7066863,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2675,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.045,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 286,
+    "timestamp": 1780591911.8115497,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.2639,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.044,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 287,
+    "timestamp": 1780591916.8903627,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.261,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0435,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 288,
+    "timestamp": 1780591921.9672332,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.258,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.043,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 289,
+    "timestamp": 1780591927.0992928,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0524,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0425,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 290,
+    "timestamp": 1780591932.1760628,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0077,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.003,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 291,
+    "timestamp": 1780591937.275202,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0065,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0015,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 292,
+    "timestamp": 1780591942.3386219,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0035,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.001,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 293,
+    "timestamp": 1780591947.4056547,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0005,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0005,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 294,
+    "timestamp": 1780591952.4906373,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 295,
+    "timestamp": 1780591957.5661502,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 296,
+    "timestamp": 1780591962.6655314,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 297,
+    "timestamp": 1780591967.7205799,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 298,
+    "timestamp": 1780591972.8004615,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 299,
+    "timestamp": 1780591977.8844779,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 300,
+    "timestamp": 1780591982.9883807,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 301,
+    "timestamp": 1780591988.0880134,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 302,
+    "timestamp": 1780591993.1353645,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 303,
+    "timestamp": 1780591998.2112744,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 304,
+    "timestamp": 1780592003.294556,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 305,
+    "timestamp": 1780592008.3551571,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 306,
+    "timestamp": 1780592013.4543982,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 307,
+    "timestamp": 1780592018.567265,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=23"
+    ]
+  },
+  {
+    "beat": 308,
+    "timestamp": 1780592027.6685827,
+    "server_a": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0,
+      "record_count": 23
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
+  },
+  {
+    "beat": 309,
+    "timestamp": 1780592032.8269975,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 1,
+      "score": 0.129,
       "record_count": 20
     },
     "server_b": {
       "alive": true,
       "role": "standby",
       "epoch": 1,
-      "score": 0.1564,
+      "score": 0.1154,
       "record_count": 20
     },
     "anomalies": []
   },
   {
-    "beat": 7,
-    "timestamp": 1780589577.4951875,
+    "beat": 310,
+    "timestamp": 1780592037.9173634,
     "server_a": {
       "alive": true,
       "role": "primary",
       "epoch": 1,
-      "score": 0.2889,
+      "score": 0.129,
       "record_count": 20
     },
     "server_b": {
       "alive": true,
       "role": "standby",
       "epoch": 1,
-      "score": 0.1569,
+      "score": 0.1154,
       "record_count": 20
     },
     "anomalies": []
   },
   {
-    "beat": 8,
-    "timestamp": 1780589582.5480342,
+    "beat": 311,
+    "timestamp": 1780592043.0305753,
     "server_a": {
       "alive": true,
       "role": "primary",
       "epoch": 1,
-      "score": 0.2919,
+      "score": 0.129,
       "record_count": 20
     },
     "server_b": {
       "alive": true,
       "role": "standby",
       "epoch": 1,
-      "score": 0.1574,
+      "score": 0.1154,
       "record_count": 20
     },
     "anomalies": []
+  },
+  {
+    "beat": 312,
+    "timestamp": 1780592048.1243455,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 1,
+      "score": 0.255,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 1,
+      "score": 0.255,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 313,
+    "timestamp": 1780592053.2601304,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 1,
+      "score": 0.261,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 1,
+      "score": 0.256,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 314,
+    "timestamp": 1780592058.4029012,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 1,
+      "score": 0.4465,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 1,
+      "score": 0.36,
+      "record_count": 21
+    },
+    "anomalies": [
+      "INFO: Server A ratchet in progress \u2014 epoch 1"
+    ]
+  },
+  {
+    "beat": 315,
+    "timestamp": 1780592063.5634325,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0005,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0031,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 316,
+    "timestamp": 1780592068.6317697,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.001,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.006,
+      "record_count": 21
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 317,
+    "timestamp": 1780592073.745463,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0061,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0111,
+      "record_count": 22
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=22"
+    ]
+  },
+  {
+    "beat": 318,
+    "timestamp": 1780592078.9126556,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0064,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0141,
+      "record_count": 22
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=22"
+    ]
+  },
+  {
+    "beat": 319,
+    "timestamp": 1780592084.0094707,
+    "server_a": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 2,
+      "score": 0.0252,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 2,
+      "score": 0.0757,
+      "record_count": 22
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=22"
+    ]
+  },
+  {
+    "beat": 320,
+    "timestamp": 1780592089.1010146,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.0,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.0,
+      "record_count": 22
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=22"
+    ]
+  },
+  {
+    "beat": 321,
+    "timestamp": 1780592094.1993139,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.006,
+      "record_count": 21
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.001,
+      "record_count": 22
+    },
+    "anomalies": [
+      "WARNING: Record count mismatch \u2014 A=21 B=22"
+    ]
+  },
+  {
+    "beat": 322,
+    "timestamp": 1780592099.3039677,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.0114,
+      "record_count": 22
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.0041,
+      "record_count": 22
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 323,
+    "timestamp": 1780592104.448778,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.0145,
+      "record_count": 22
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.0045,
+      "record_count": 22
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 324,
+    "timestamp": 1780592109.595991,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.0175,
+      "record_count": 22
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.005,
+      "record_count": 22
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 325,
+    "timestamp": 1780592114.7219086,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.2382,
+      "record_count": 22
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.0418,
+      "record_count": 22
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 326,
+    "timestamp": 1780592119.799366,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.2638,
+      "record_count": 22
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.0463,
+      "record_count": 22
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 327,
+    "timestamp": 1780592124.8583837,
+    "server_a": {
+      "alive": true,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.2665,
+      "record_count": 22
+    },
+    "server_b": {
+      "alive": true,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.0465,
+      "record_count": 22
+    },
+    "anomalies": []
+  },
+  {
+    "beat": 328,
+    "timestamp": 1780592133.986238,
+    "server_a": {
+      "alive": false,
+      "role": "primary",
+      "epoch": 3,
+      "score": 0.2665,
+      "record_count": 22
+    },
+    "server_b": {
+      "alive": false,
+      "role": "standby",
+      "epoch": 3,
+      "score": 0.0465,
+      "record_count": 22
+    },
+    "anomalies": [
+      "CRITICAL: Both servers are unreachable"
+    ]
   }
 ]

@@ -5,6 +5,7 @@ import sys
 import os
 import time
 import threading
+import base64
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 sys.stdout.reconfigure(encoding='utf-8')
@@ -495,6 +496,66 @@ def store_record():
     return _ok({"record_id": record_id, "epoch": state["epoch"]})
 
 
+@app.route("/store_payload", methods=["POST"])
+def store_payload():
+    ip = _get_request_ip()
+    _check_breach(ip)
+
+    if state["isolated"]:
+        return _err("Server B is isolated", 503)
+    if state["current_key"] is None:
+        return _err("Server not initialised", 503)
+
+    data = request.get_json()
+    if not data or "payload_b64" not in data:
+        return _err("Missing payload_b64")
+
+    try:
+        plaintext = base64.b64decode(data["payload_b64"])
+    except Exception as e:
+        return _err(f"Invalid base64: {e}")
+
+    # Generate a new record ID
+    record_id = f"rec_{os.urandom(4).hex()}"
+
+    # Encrypt the payload with the server's master key
+    nonce, ciphertext, mac_tag = encrypt(state["current_key"], plaintext)
+
+    ok = store.save(
+        record_id,
+        epoch=state["epoch"],
+        nonce=nonce,
+        ciphertext=ciphertext,
+        mac_tag=mac_tag,
+    )
+
+    if not ok:
+        return _err("Failed to save record", 500)
+
+    audit.append(RECORD_STORED, {
+        "record_id": record_id,
+        "epoch":     state["epoch"],
+        "server":    SERVER_ID,
+    })
+
+    # ── SERVER B SPECIFIC: only mirror if primary ──
+    if state["role"] == "primary":
+        mirror_data = {
+            "record_id": record_id,
+            "nonce": nonce.hex(),
+            "ciphertext": ciphertext.hex(),
+            "mac_tag": mac_tag.hex(),
+        }
+        threading.Thread(
+            target=_notify_peer,
+            args=["/store", mirror_data],
+            daemon=True
+        ).start()
+
+    return _ok({"record_id": record_id, "epoch": state["epoch"]})
+
+
+
 @app.route("/fetch/<record_id>", methods=["GET"])
 def fetch_record(record_id: str):
     ip = _get_request_ip()
@@ -524,10 +585,50 @@ def fetch_record(record_id: str):
     })
 
 
+@app.route("/fetch_payload/<record_id>", methods=["GET"])
+def fetch_payload(record_id: str):
+    ip = _get_request_ip()
+    _check_breach(ip)
+
+    if state["isolated"]:
+        return _err("Server B is isolated", 503)
+    if state["current_key"] is None:
+        return _err("Server not initialised", 503)
+
+    rec = store.get(record_id)
+    if rec is None:
+        return _err(f"Record '{record_id}' not found", 404)
+
+    try:
+        plaintext = decrypt(
+            state["current_key"],
+            rec["nonce"],
+            rec["ciphertext"],
+            rec["mac_tag"]
+        )
+    except Exception as e:
+        return _err(f"Decryption failed: {e}", 500)
+
+    audit.append(RECORD_FETCHED, {
+        "record_id": record_id,
+        "epoch":     rec["epoch"],
+        "server":    SERVER_ID,
+    })
+
+    return _ok({
+        "record_id": rec["id"],
+        "epoch": rec["epoch"],
+        "payload_b64": base64.b64encode(plaintext).decode('utf-8')
+    })
+
+
 @app.route("/fetch/all", methods=["GET"])
 def fetch_all():
     ip = _get_request_ip()
     _check_breach(ip)
+
+    if state["isolated"]:
+        return _err("Server B is isolated", 503)
 
     all_recs = store.get_all()
     metadata = [
@@ -676,6 +777,8 @@ def isolate():
 
 @app.route("/audit", methods=["GET"])
 def get_audit():
+    if state["isolated"]:
+        return _err("Server B is isolated", 503)
     last_n  = request.args.get("last", type=int)
     entries = audit.get_last(last_n) if last_n else audit.get_all()
     return _ok({"entries": entries, "total": audit.count()})
@@ -683,6 +786,8 @@ def get_audit():
 
 @app.route("/audit/summary", methods=["GET"])
 def audit_summary():
+    if state["isolated"]:
+        return _err("Server B is isolated", 503)
     return _ok(audit.summary())
 
 
