@@ -2,289 +2,805 @@
   {
     "seq": 1,
     "event": "SERVER_STARTED",
-    "timestamp": 1780593355.9793587,
+    "timestamp": 1781257554.2633483,
     "data": {
       "server": "server_b",
       "port": 5002,
       "role": "standby"
     },
     "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
-    "this_hash": "df56526b54c273c72251abdca445369d54b2db37c25cfbadabdf975c49ee0617"
+    "this_hash": "a50be814017d52a708af0cab188a811c47767f736f9d234c045478e01d8cea9f"
   },
   {
     "seq": 2,
     "event": "KEY_CEREMONY",
-    "timestamp": 1780593356.0913444,
+    "timestamp": 1781257554.7644892,
     "data": {
       "server": "server_b",
       "epoch": 1,
       "share_x": 2
     },
-    "prev_hash": "df56526b54c273c72251abdca445369d54b2db37c25cfbadabdf975c49ee0617",
-    "this_hash": "6db45c9f823653ea559135e3458207961c2419ed5e588eeb1ab86790fa259256"
+    "prev_hash": "a50be814017d52a708af0cab188a811c47767f736f9d234c045478e01d8cea9f",
+    "this_hash": "ddea5872d3430c33a0812a971f4cb6016b61c2be28e0b1cfb28f880478036a05"
   },
   {
     "seq": 3,
     "event": "SHARE_ISSUED",
-    "timestamp": 1780593356.0930793,
+    "timestamp": 1781257554.7666812,
     "data": {
       "recipient": "server_b",
       "share_x": 2,
       "epoch": 1
     },
-    "prev_hash": "6db45c9f823653ea559135e3458207961c2419ed5e588eeb1ab86790fa259256",
-    "this_hash": "d1e825571b1a4fc6ebecccaa6914f9eab8bc4ff58ada7121f81bcb70cd98d0f2"
+    "prev_hash": "ddea5872d3430c33a0812a971f4cb6016b61c2be28e0b1cfb28f880478036a05",
+    "this_hash": "7c8048b4501e88b10a61927faec26d1b3e0f3b61194e165f574cca72700582a6"
   },
   {
     "seq": 4,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.2032573,
+    "timestamp": 1781257554.8744545,
     "data": {
       "record_id": "patient-00014e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "d1e825571b1a4fc6ebecccaa6914f9eab8bc4ff58ada7121f81bcb70cd98d0f2",
-    "this_hash": "404bf22e9ec51544fc455f368fb332f819ed66b06ad9be3ce6f08502cc77a3ef"
+    "prev_hash": "7c8048b4501e88b10a61927faec26d1b3e0f3b61194e165f574cca72700582a6",
+    "this_hash": "a930ae5797e9eb98886b04bd2e7fd307803bf41d29328500b3f4c6c2183034ac"
   },
   {
     "seq": 5,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.2827833,
+    "timestamp": 1781257554.9115853,
     "data": {
       "record_id": "patient-00024e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "404bf22e9ec51544fc455f368fb332f819ed66b06ad9be3ce6f08502cc77a3ef",
-    "this_hash": "33c2673acb967164bcd944c788393992459818bdf6b4e76eb0887b329a58be63"
+    "prev_hash": "a930ae5797e9eb98886b04bd2e7fd307803bf41d29328500b3f4c6c2183034ac",
+    "this_hash": "c9201ab20b1ba0ada85aadaa1afade2dcc753eb7a336ef7969fcd068796b52e5"
   },
   {
     "seq": 6,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.4127007,
+    "timestamp": 1781257554.9579182,
     "data": {
       "record_id": "patient-00034e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "33c2673acb967164bcd944c788393992459818bdf6b4e76eb0887b329a58be63",
-    "this_hash": "12ee175003c41484f0100edfea941be3748cd8bc7f0c57f66e88f59eb007f334"
+    "prev_hash": "c9201ab20b1ba0ada85aadaa1afade2dcc753eb7a336ef7969fcd068796b52e5",
+    "this_hash": "c9dba5f4494164b3f1e8a1765b0c3f969ce8a513919f4a0b8a2daa08170b3196"
   },
   {
     "seq": 7,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.477358,
+    "timestamp": 1781257555.0075035,
     "data": {
       "record_id": "patient-00044e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "12ee175003c41484f0100edfea941be3748cd8bc7f0c57f66e88f59eb007f334",
-    "this_hash": "0bb582f402161d27a115921119917ccf7b983e762a9d02792b594cf7eab4d8a9"
+    "prev_hash": "c9dba5f4494164b3f1e8a1765b0c3f969ce8a513919f4a0b8a2daa08170b3196",
+    "this_hash": "79e47223893a333977eff6a39df3ef228fb07e8071036fd97a74eb005c9f8f6e"
   },
   {
     "seq": 8,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.5407028,
+    "timestamp": 1781257555.068274,
     "data": {
       "record_id": "patient-00054e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "0bb582f402161d27a115921119917ccf7b983e762a9d02792b594cf7eab4d8a9",
-    "this_hash": "f95f30b9cf7b7b2bd85e9050017fc14c8e85933db2a4988d7d143bd23020836b"
+    "prev_hash": "79e47223893a333977eff6a39df3ef228fb07e8071036fd97a74eb005c9f8f6e",
+    "this_hash": "3bf05d3a6a580b646bc2049598488fbfc299186c2a4898468bf3372ce196aa12"
   },
   {
     "seq": 9,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.5905097,
+    "timestamp": 1781257555.1018002,
     "data": {
       "record_id": "patient-00064e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "f95f30b9cf7b7b2bd85e9050017fc14c8e85933db2a4988d7d143bd23020836b",
-    "this_hash": "8376247fb5dea3f7006d5a3205fbe56fff864325293e889c62980ebf05572b40"
+    "prev_hash": "3bf05d3a6a580b646bc2049598488fbfc299186c2a4898468bf3372ce196aa12",
+    "this_hash": "028467f5fad2bc90dd30b0e8e90cbc08a99601c647810d93310d90fc871f087d"
   },
   {
     "seq": 10,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.6597161,
+    "timestamp": 1781257555.145028,
     "data": {
       "record_id": "patient-00074e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "8376247fb5dea3f7006d5a3205fbe56fff864325293e889c62980ebf05572b40",
-    "this_hash": "818326f7557805fc0f72790be3cd6c85b4f19df9752c5edb4e2ac01e3674f463"
+    "prev_hash": "028467f5fad2bc90dd30b0e8e90cbc08a99601c647810d93310d90fc871f087d",
+    "this_hash": "ac94096bdc5f0f580a26305056b9af6134f4804fe21b8005e2f81b4c7ccd237e"
   },
   {
     "seq": 11,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.6999118,
+    "timestamp": 1781257555.2032998,
     "data": {
       "record_id": "patient-00084e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "818326f7557805fc0f72790be3cd6c85b4f19df9752c5edb4e2ac01e3674f463",
-    "this_hash": "a6b6615827b6efafe63c92f31c86e18a335db5436775d7362683e4d4d67e2cbc"
+    "prev_hash": "ac94096bdc5f0f580a26305056b9af6134f4804fe21b8005e2f81b4c7ccd237e",
+    "this_hash": "353bb33b03fbc6257d84204e9430058aea4d4da6422705ff20ad687523420206"
   },
   {
     "seq": 12,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.747742,
+    "timestamp": 1781257555.2482948,
     "data": {
       "record_id": "patient-00094e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "a6b6615827b6efafe63c92f31c86e18a335db5436775d7362683e4d4d67e2cbc",
-    "this_hash": "32671f9c0eff002546b556d485e4c73c629195b0b31c74cdb38d23296ded60c5"
+    "prev_hash": "353bb33b03fbc6257d84204e9430058aea4d4da6422705ff20ad687523420206",
+    "this_hash": "c20152220c4c0f965eb6ed829e4cafec7a57f305fff9ccd94867f89f01417adf"
   },
   {
     "seq": 13,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.808953,
+    "timestamp": 1781257555.2994812,
     "data": {
       "record_id": "patient-00104e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "32671f9c0eff002546b556d485e4c73c629195b0b31c74cdb38d23296ded60c5",
-    "this_hash": "1a397d91899cfb34893172fd6bd1b0064447d3784957544659f26fe20338d4df"
+    "prev_hash": "c20152220c4c0f965eb6ed829e4cafec7a57f305fff9ccd94867f89f01417adf",
+    "this_hash": "c15a9f07fcdfe37e7dab817ec4c4cc7134c3dedafd98c34f6e560c52ddfd3c11"
   },
   {
     "seq": 14,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.883213,
+    "timestamp": 1781257555.3534002,
     "data": {
       "record_id": "patient-00114e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "1a397d91899cfb34893172fd6bd1b0064447d3784957544659f26fe20338d4df",
-    "this_hash": "3b6b6bb286e9880318ba01a14ba6712fbda09fedcf89a23c3011206477e26bdb"
+    "prev_hash": "c15a9f07fcdfe37e7dab817ec4c4cc7134c3dedafd98c34f6e560c52ddfd3c11",
+    "this_hash": "6ba1f7ab1f7f3437273c2976b6bf031e117ca492ace2dc3102e84238867fdda4"
   },
   {
     "seq": 15,
     "event": "RECORD_STORED",
-    "timestamp": 1780593356.9692075,
+    "timestamp": 1781257555.3967626,
     "data": {
       "record_id": "patient-00124e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "3b6b6bb286e9880318ba01a14ba6712fbda09fedcf89a23c3011206477e26bdb",
-    "this_hash": "0ec845147e40dd92cd72949faa05c3e92e9d6af37e12d56716148f13993e22a4"
+    "prev_hash": "6ba1f7ab1f7f3437273c2976b6bf031e117ca492ace2dc3102e84238867fdda4",
+    "this_hash": "8897b1fe4a69478299369214ee3887e7f48b85b13747307a84d90e0fef63f680"
   },
   {
     "seq": 16,
     "event": "RECORD_STORED",
-    "timestamp": 1780593357.0253925,
+    "timestamp": 1781257555.4488335,
     "data": {
       "record_id": "patient-00134e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "0ec845147e40dd92cd72949faa05c3e92e9d6af37e12d56716148f13993e22a4",
-    "this_hash": "e157e1daae71d567116eed15e82afde6d77b6c8c6ff792762aae277280a24bd5"
+    "prev_hash": "8897b1fe4a69478299369214ee3887e7f48b85b13747307a84d90e0fef63f680",
+    "this_hash": "83d106e7616f12d075875660bcb6387cb2ace3cb10db82432c6fa70ef5302fde"
   },
   {
     "seq": 17,
     "event": "RECORD_STORED",
-    "timestamp": 1780593357.073477,
+    "timestamp": 1781257555.497927,
     "data": {
       "record_id": "patient-00144e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "e157e1daae71d567116eed15e82afde6d77b6c8c6ff792762aae277280a24bd5",
-    "this_hash": "92c257e23fd58eae1005f28c1ab1e6de8e55cad90b3d3dc4b2939c2cc2fc6add"
+    "prev_hash": "83d106e7616f12d075875660bcb6387cb2ace3cb10db82432c6fa70ef5302fde",
+    "this_hash": "256afdb72756329619d01f26296c88f3aae94dcaee236fdd7b20d552b8e35ad6"
   },
   {
     "seq": 18,
     "event": "RECORD_STORED",
-    "timestamp": 1780593357.1282675,
+    "timestamp": 1781257555.5445685,
     "data": {
       "record_id": "patient-00154e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "92c257e23fd58eae1005f28c1ab1e6de8e55cad90b3d3dc4b2939c2cc2fc6add",
-    "this_hash": "de36469bef209d9f9675608ea4edf4d02487c29a3ce11b8e1325de66ac38a11e"
+    "prev_hash": "256afdb72756329619d01f26296c88f3aae94dcaee236fdd7b20d552b8e35ad6",
+    "this_hash": "542df07070d0667ae1110e210ea9bdec03e895e60fe3d4bc87976ed3c2f864be"
   },
   {
     "seq": 19,
     "event": "RECORD_STORED",
-    "timestamp": 1780593357.140657,
+    "timestamp": 1781257555.5919433,
     "data": {
       "record_id": "patient-00164e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "de36469bef209d9f9675608ea4edf4d02487c29a3ce11b8e1325de66ac38a11e",
-    "this_hash": "cb13c46c976fe5a3c45e7bdb50cb11fbfed18649bf4def318267a7c41d95187c"
+    "prev_hash": "542df07070d0667ae1110e210ea9bdec03e895e60fe3d4bc87976ed3c2f864be",
+    "this_hash": "afb3a02811f43adb396acda5b07e9508603127c2f6c6564b382ed53648a6e365"
   },
   {
     "seq": 20,
     "event": "RECORD_STORED",
-    "timestamp": 1780593357.1918845,
+    "timestamp": 1781257555.6315463,
     "data": {
       "record_id": "patient-00174e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "cb13c46c976fe5a3c45e7bdb50cb11fbfed18649bf4def318267a7c41d95187c",
-    "this_hash": "9894ffd272d713711e0cd1953567c8b77718c9a09cfbcad333d4ce9bf3fe3421"
+    "prev_hash": "afb3a02811f43adb396acda5b07e9508603127c2f6c6564b382ed53648a6e365",
+    "this_hash": "98fda8bac5c993a2c8da2146859366f8f3a7cd148b902843063405755278c0d6"
   },
   {
     "seq": 21,
     "event": "RECORD_STORED",
-    "timestamp": 1780593357.2263672,
+    "timestamp": 1781257555.686869,
     "data": {
       "record_id": "patient-00184e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "9894ffd272d713711e0cd1953567c8b77718c9a09cfbcad333d4ce9bf3fe3421",
-    "this_hash": "235e93725af577c44b3c136ca129e0d863e9ce383fe1a2583fea74d0830cae53"
+    "prev_hash": "98fda8bac5c993a2c8da2146859366f8f3a7cd148b902843063405755278c0d6",
+    "this_hash": "6b2170c27a98cebe942d318e50fdbf33933609078b229bd4fc97e9d9f219a111"
   },
   {
     "seq": 22,
     "event": "RECORD_STORED",
-    "timestamp": 1780593357.2831845,
+    "timestamp": 1781257555.717909,
     "data": {
       "record_id": "patient-00194e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "235e93725af577c44b3c136ca129e0d863e9ce383fe1a2583fea74d0830cae53",
-    "this_hash": "392187a0f5ba68c24f8b1afa017ba0b52c27277becf26cb12ff430a5f176957c"
+    "prev_hash": "6b2170c27a98cebe942d318e50fdbf33933609078b229bd4fc97e9d9f219a111",
+    "this_hash": "db5324256a91399fdc5b5ec8ced73206bec8d1d5f4a6e9e44650f2f685ea58f2"
   },
   {
     "seq": 23,
     "event": "RECORD_STORED",
-    "timestamp": 1780593357.3576825,
+    "timestamp": 1781257555.763321,
     "data": {
       "record_id": "patient-00204e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "392187a0f5ba68c24f8b1afa017ba0b52c27277becf26cb12ff430a5f176957c",
-    "this_hash": "1fecf4684c367f1da99b46f75a8356a3aec82993d84c474a58e8151561f4f96f"
+    "prev_hash": "db5324256a91399fdc5b5ec8ced73206bec8d1d5f4a6e9e44650f2f685ea58f2",
+    "this_hash": "2dd46b07cd91ed65216853349cb92fda895fe7fa97eeb55fda1bab52c1e27aa7"
   },
   {
     "seq": 24,
     "event": "RECORD_STORED",
-    "timestamp": 1780593415.8228781,
+    "timestamp": 1781257947.3304932,
     "data": {
-      "record_id": "rec_1df07d49",
+      "record_id": "patient-00014e5f8a9b",
       "epoch": 1,
       "server": "server_b"
     },
-    "prev_hash": "1fecf4684c367f1da99b46f75a8356a3aec82993d84c474a58e8151561f4f96f",
-    "this_hash": "e07d8c7d49ed36ef70b76d185fcee6f9040fb9d3a4aa7d87880b53e81d87af9c"
+    "prev_hash": "2dd46b07cd91ed65216853349cb92fda895fe7fa97eeb55fda1bab52c1e27aa7",
+    "this_hash": "f6990eca68ca93898695b4ab262d274abf234879d4f86e270c07994e1edc24b5"
+  },
+  {
+    "seq": 25,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.3933284,
+    "data": {
+      "record_id": "patient-00024e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "f6990eca68ca93898695b4ab262d274abf234879d4f86e270c07994e1edc24b5",
+    "this_hash": "11d0065861b98d3fe203f4247b64be7ea1081dea06b4babed68cfeaf83a27ac5"
+  },
+  {
+    "seq": 26,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.4605608,
+    "data": {
+      "record_id": "patient-00034e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "11d0065861b98d3fe203f4247b64be7ea1081dea06b4babed68cfeaf83a27ac5",
+    "this_hash": "b90dba1ea506640a580af856deecf47b5e219b419a2a5c99895252a52f12263f"
+  },
+  {
+    "seq": 27,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.7065623,
+    "data": {
+      "record_id": "patient-00054e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "b90dba1ea506640a580af856deecf47b5e219b419a2a5c99895252a52f12263f",
+    "this_hash": "fdc202910e3bc82c0d9f54f28a4eafedb13278eccb923ceb20556fc974f1f621"
+  },
+  {
+    "seq": 28,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.7287328,
+    "data": {
+      "record_id": "patient-00044e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "fdc202910e3bc82c0d9f54f28a4eafedb13278eccb923ceb20556fc974f1f621",
+    "this_hash": "f43be0a470ed521d25eb4d9bb9f85ba63485cc59724c70fd08a30519df0ad932"
+  },
+  {
+    "seq": 29,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.7416112,
+    "data": {
+      "record_id": "patient-00064e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "f43be0a470ed521d25eb4d9bb9f85ba63485cc59724c70fd08a30519df0ad932",
+    "this_hash": "698590f58ccd3b3f1deba0be14935cef32e27eb2d78961f7c1fda447847ef8ec"
+  },
+  {
+    "seq": 30,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.7635713,
+    "data": {
+      "record_id": "patient-00074e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "698590f58ccd3b3f1deba0be14935cef32e27eb2d78961f7c1fda447847ef8ec",
+    "this_hash": "9e8e279651fbe292ddc8853bba29e8dd82f8ec2edc9f94bc27889155bbee6476"
+  },
+  {
+    "seq": 31,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.7836635,
+    "data": {
+      "record_id": "patient-00084e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "9e8e279651fbe292ddc8853bba29e8dd82f8ec2edc9f94bc27889155bbee6476",
+    "this_hash": "d8560c4f6e9f4cef0a8fea85fa7b390f520f1eea0ace31a45affe425fd2fc9c7"
+  },
+  {
+    "seq": 32,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.8076758,
+    "data": {
+      "record_id": "patient-00094e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "d8560c4f6e9f4cef0a8fea85fa7b390f520f1eea0ace31a45affe425fd2fc9c7",
+    "this_hash": "b44a5fe3609642c2e38b2e82b4d935fd259ed2c2808d8603db9356f9a6e4afa3"
+  },
+  {
+    "seq": 33,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.8546894,
+    "data": {
+      "record_id": "patient-00104e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "b44a5fe3609642c2e38b2e82b4d935fd259ed2c2808d8603db9356f9a6e4afa3",
+    "this_hash": "4db44cbd1348e42be38d485e5c07c98cfedd96a7c2d3f993f0c9b38556879109"
+  },
+  {
+    "seq": 34,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.8766356,
+    "data": {
+      "record_id": "patient-00114e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "4db44cbd1348e42be38d485e5c07c98cfedd96a7c2d3f993f0c9b38556879109",
+    "this_hash": "f10c28f1b93a1ded1d181915ef17471b2ac742d829e54f996c7a746936813224"
+  },
+  {
+    "seq": 35,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.9112885,
+    "data": {
+      "record_id": "patient-00124e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "f10c28f1b93a1ded1d181915ef17471b2ac742d829e54f996c7a746936813224",
+    "this_hash": "e206941051df7d6b0e818b80b3dcaaf8c29e41d71dae17b42a600f7f626fd490"
+  },
+  {
+    "seq": 36,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257947.9589124,
+    "data": {
+      "record_id": "patient-00134e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "e206941051df7d6b0e818b80b3dcaaf8c29e41d71dae17b42a600f7f626fd490",
+    "this_hash": "4caf20097db61fff133257da96ed6f05958cd2b103e010db7ca11baa951be8b8"
+  },
+  {
+    "seq": 37,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.0060935,
+    "data": {
+      "record_id": "patient-00144e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "4caf20097db61fff133257da96ed6f05958cd2b103e010db7ca11baa951be8b8",
+    "this_hash": "c1b7efce7bdb54dca105b758ed494ebe1731f6e33b1e44170e068a27b60b4c6e"
+  },
+  {
+    "seq": 38,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.0377643,
+    "data": {
+      "record_id": "patient-00154e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "c1b7efce7bdb54dca105b758ed494ebe1731f6e33b1e44170e068a27b60b4c6e",
+    "this_hash": "318ca5a5f27bf96e969461bf8b44b3863bea230593ca02fd11d72171918af7ba"
+  },
+  {
+    "seq": 39,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.0975962,
+    "data": {
+      "record_id": "patient-00164e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "318ca5a5f27bf96e969461bf8b44b3863bea230593ca02fd11d72171918af7ba",
+    "this_hash": "eba21be843aae3b1ed6fa723b8378ed27ca29bcfc05ca88d0131788bcbab73de"
+  },
+  {
+    "seq": 40,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.1507366,
+    "data": {
+      "record_id": "patient-00174e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "eba21be843aae3b1ed6fa723b8378ed27ca29bcfc05ca88d0131788bcbab73de",
+    "this_hash": "20a2cf567fd3ddc170c5ad75ff031aa67752c0efc9f7ec4861ebeb76771f4cf5"
+  },
+  {
+    "seq": 41,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.176233,
+    "data": {
+      "record_id": "patient-00184e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "20a2cf567fd3ddc170c5ad75ff031aa67752c0efc9f7ec4861ebeb76771f4cf5",
+    "this_hash": "5995eef0e02962bb24ef79aa2c57ff51e6e8e9ecb480d2cc23a65e922c8586bc"
+  },
+  {
+    "seq": 42,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.2142825,
+    "data": {
+      "record_id": "patient-00194e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "5995eef0e02962bb24ef79aa2c57ff51e6e8e9ecb480d2cc23a65e922c8586bc",
+    "this_hash": "a0855f07ea7ca18c3e72f994395319714d51a517bb8aa0ea5866bd3b08af62b7"
+  },
+  {
+    "seq": 43,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.259743,
+    "data": {
+      "record_id": "patient-00014e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "a0855f07ea7ca18c3e72f994395319714d51a517bb8aa0ea5866bd3b08af62b7",
+    "this_hash": "53b1c4a0727a53b90883f63b54bf25410d5974629ff7a8b5d9eca72ab6f9e82c"
+  },
+  {
+    "seq": 44,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.275583,
+    "data": {
+      "record_id": "patient-00204e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "53b1c4a0727a53b90883f63b54bf25410d5974629ff7a8b5d9eca72ab6f9e82c",
+    "this_hash": "185542f747fd67f86f86f6fbdbec8d0072236d772165e9ca26b8d4baaf9a297a"
+  },
+  {
+    "seq": 45,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.2953792,
+    "data": {
+      "record_id": "patient-00024e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "185542f747fd67f86f86f6fbdbec8d0072236d772165e9ca26b8d4baaf9a297a",
+    "this_hash": "934c874fb98e79769535e7e543941f3029890c2934f0418cc9b8c51e877544c0"
+  },
+  {
+    "seq": 46,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.3275945,
+    "data": {
+      "record_id": "patient-00034e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "934c874fb98e79769535e7e543941f3029890c2934f0418cc9b8c51e877544c0",
+    "this_hash": "43e5b13d205081809c44052492a05f9849b40087870c4027a8edf46c7ebb489b"
+  },
+  {
+    "seq": 47,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.359361,
+    "data": {
+      "record_id": "patient-00044e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "43e5b13d205081809c44052492a05f9849b40087870c4027a8edf46c7ebb489b",
+    "this_hash": "cbdc7a131dd6757427cd861a4b639c1e51c4b4ec93a9bc1d68db41c4a2da9192"
+  },
+  {
+    "seq": 48,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.3934674,
+    "data": {
+      "record_id": "patient-00054e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "cbdc7a131dd6757427cd861a4b639c1e51c4b4ec93a9bc1d68db41c4a2da9192",
+    "this_hash": "d716ceb4afd00d4cd13233c85bde2b3e9cabfd6d383db6c99c8ea445895014c1"
+  },
+  {
+    "seq": 49,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.439962,
+    "data": {
+      "record_id": "patient-00064e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "d716ceb4afd00d4cd13233c85bde2b3e9cabfd6d383db6c99c8ea445895014c1",
+    "this_hash": "0c266602eb0f7a9ec2bc4cc46351ee65eea41ed36d4e4bbf8d83eab9c0e86f31"
+  },
+  {
+    "seq": 50,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.4825587,
+    "data": {
+      "record_id": "patient-00074e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "0c266602eb0f7a9ec2bc4cc46351ee65eea41ed36d4e4bbf8d83eab9c0e86f31",
+    "this_hash": "21717a3e80d95a7f2301f09cbc7d19a97d4250f781f60b89ed1eccd5e77f8f7e"
+  },
+  {
+    "seq": 51,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.5238698,
+    "data": {
+      "record_id": "patient-00084e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "21717a3e80d95a7f2301f09cbc7d19a97d4250f781f60b89ed1eccd5e77f8f7e",
+    "this_hash": "0637d91707926e4c57418a74b7501fd994d5fcd74f3b32ff2ead8502e7284e96"
+  },
+  {
+    "seq": 52,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.6075172,
+    "data": {
+      "record_id": "patient-00094e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "0637d91707926e4c57418a74b7501fd994d5fcd74f3b32ff2ead8502e7284e96",
+    "this_hash": "a63f41e7728c7cd19ae6ccb89def0773ab7242d6b9c4452df2a3209b4402b92b"
+  },
+  {
+    "seq": 53,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.6436293,
+    "data": {
+      "record_id": "patient-00104e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "a63f41e7728c7cd19ae6ccb89def0773ab7242d6b9c4452df2a3209b4402b92b",
+    "this_hash": "6b2b253551591f95a11a922759f70b9c4a46e0003441e9a289767d38d1974e51"
+  },
+  {
+    "seq": 54,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.6963544,
+    "data": {
+      "record_id": "patient-00114e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "6b2b253551591f95a11a922759f70b9c4a46e0003441e9a289767d38d1974e51",
+    "this_hash": "1af168fe20c94bd0c18118261ee0bae44246f3844113c3e8d2d20391b7dca1dd"
+  },
+  {
+    "seq": 55,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.727491,
+    "data": {
+      "record_id": "patient-00124e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "1af168fe20c94bd0c18118261ee0bae44246f3844113c3e8d2d20391b7dca1dd",
+    "this_hash": "dfeea7902fd2d07dc61a44dd36e68c8ce81ca6d28ee22114dae8b303fc4f79c7"
+  },
+  {
+    "seq": 56,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.8360674,
+    "data": {
+      "record_id": "patient-00134e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "dfeea7902fd2d07dc61a44dd36e68c8ce81ca6d28ee22114dae8b303fc4f79c7",
+    "this_hash": "55f46616994cc80d48a42e2a9fbd91fe3f4ca2aea7d518bbb7cad93529e3165d"
+  },
+  {
+    "seq": 57,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.9052753,
+    "data": {
+      "record_id": "patient-00144e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "55f46616994cc80d48a42e2a9fbd91fe3f4ca2aea7d518bbb7cad93529e3165d",
+    "this_hash": "3edd06cf7a86c533e174d219b95c4ee89c63511818eab2f133a3d4803fa0fdae"
+  },
+  {
+    "seq": 58,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.9557328,
+    "data": {
+      "record_id": "patient-00154e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "3edd06cf7a86c533e174d219b95c4ee89c63511818eab2f133a3d4803fa0fdae",
+    "this_hash": "5456742c5eee652340ac9eb9e89f20d601a7b06231c9b3d76a7c676a32ffdba4"
+  },
+  {
+    "seq": 59,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257948.9839854,
+    "data": {
+      "record_id": "patient-00164e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "5456742c5eee652340ac9eb9e89f20d601a7b06231c9b3d76a7c676a32ffdba4",
+    "this_hash": "6f5fd5eaf0d22c21bbd01f477b3f2c55e61496f3804b7edb5a75ac6405a1cb50"
+  },
+  {
+    "seq": 60,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257949.0283306,
+    "data": {
+      "record_id": "patient-00174e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "6f5fd5eaf0d22c21bbd01f477b3f2c55e61496f3804b7edb5a75ac6405a1cb50",
+    "this_hash": "5973418d0c327227813ef1e7007614ee046fab6062867b405f30053216c0bf19"
+  },
+  {
+    "seq": 61,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257949.056293,
+    "data": {
+      "record_id": "patient-00184e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "5973418d0c327227813ef1e7007614ee046fab6062867b405f30053216c0bf19",
+    "this_hash": "9bc9923af91d6d7a934834c8fb7183f2ad122dfdd714b65a348187fb030d8624"
+  },
+  {
+    "seq": 62,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257949.0937026,
+    "data": {
+      "record_id": "patient-00194e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "9bc9923af91d6d7a934834c8fb7183f2ad122dfdd714b65a348187fb030d8624",
+    "this_hash": "068278a0741201dd12d3ea35e7d458a3124e70b2f8c45815bd34efb44fcf43f1"
+  },
+  {
+    "seq": 63,
+    "event": "RECORD_STORED",
+    "timestamp": 1781257949.1216557,
+    "data": {
+      "record_id": "patient-00204e5f8a9b",
+      "epoch": 1,
+      "server": "server_b"
+    },
+    "prev_hash": "068278a0741201dd12d3ea35e7d458a3124e70b2f8c45815bd34efb44fcf43f1",
+    "this_hash": "4b135bc1321c3d3c1a5eb66ff84b8afcd738530a4c5b231b27cf70479408aa44"
+  },
+  {
+    "seq": 64,
+    "event": "FAILOVER_COMPLETE",
+    "timestamp": 1781257949.1767452,
+    "data": {
+      "new_primary": "server_b",
+      "epoch": 2,
+      "reason": "instructed by server_a"
+    },
+    "prev_hash": "4b135bc1321c3d3c1a5eb66ff84b8afcd738530a4c5b231b27cf70479408aa44",
+    "this_hash": "2c1bdb3143d896879cd50438d0df83d6048e52bb801b884c2906153dfb86e24c"
+  },
+  {
+    "seq": 65,
+    "event": "RECORD_STORED",
+    "timestamp": 1781258090.1718915,
+    "data": {
+      "record_id": "rec_1c48cd78",
+      "epoch": 2,
+      "server": "server_b"
+    },
+    "prev_hash": "2c1bdb3143d896879cd50438d0df83d6048e52bb801b884c2906153dfb86e24c",
+    "this_hash": "327904f757cd6d838b86b4120b225c0cf76a4e7e5395de831ff3e0dcb4f025c7"
+  },
+  {
+    "seq": 66,
+    "event": "RECORD_STORED",
+    "timestamp": 1781258163.4592507,
+    "data": {
+      "record_id": "rec_67de8968",
+      "epoch": 2,
+      "server": "server_b"
+    },
+    "prev_hash": "327904f757cd6d838b86b4120b225c0cf76a4e7e5395de831ff3e0dcb4f025c7",
+    "this_hash": "57dc364faa176ac97601eafaad8576a2b75b03c5bf4a6eccbf2ca3520a706137"
+  },
+  {
+    "seq": 67,
+    "event": "RECORD_FETCHED",
+    "timestamp": 1781258208.2971678,
+    "data": {
+      "record_id": "rec_1c48cd78",
+      "epoch": 2,
+      "server": "server_b"
+    },
+    "prev_hash": "57dc364faa176ac97601eafaad8576a2b75b03c5bf4a6eccbf2ca3520a706137",
+    "this_hash": "59826ebf1598ab17ba328fa1c8ea50a1ffa4db8a1d94a365ffe32d4b231aebe2"
   }
 ]

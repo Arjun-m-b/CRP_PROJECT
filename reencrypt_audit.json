@@ -1,0 +1,32 @@
+[
+  {
+    "seq": 1,
+    "event": "RE_ENCRYPT_START",
+    "timestamp": 1781257946.2432935,
+    "data": {
+      "source": "server_a",
+      "count": 20,
+      "old_epoch": 1,
+      "new_epoch": 2
+    },
+    "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "this_hash": "da572be879b197b96e4225a11e035f4a59ca94192836b009db2c4c3dfd73562d"
+  },
+  {
+    "seq": 2,
+    "event": "RE_ENCRYPT_COMPLETE",
+    "timestamp": 1781257949.156836,
+    "data": {
+      "old_epoch": 1,
+      "new_epoch": 2,
+      "total": 20,
+      "success": 20,
+      "failed": 0,
+      "pushed_a": 20,
+      "pushed_b": 20,
+      "in_sync": true
+    },
+    "prev_hash": "da572be879b197b96e4225a11e035f4a59ca94192836b009db2c4c3dfd73562d",
+    "this_hash": "8af8d718e71bf81f1e61b2a60e1278493a731bfe9a24179719eb849412819624"
+  }
+]
